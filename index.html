@@ -1137,20 +1137,20 @@
             var cactx = cacvs.getContext('2d');
             // var caimg = cactx.getImageData(0,0,300,300);
 
-            // var ef1cvs =document.getElementById("Effect1");
-            // var ef1ctx = ef1cvs.getContext('2d');
+            var ef1cvs =document.getElementById("Effect1");
+            var ef1ctx = ef1cvs.getContext('2d');
             // var ef1img = ef1ctx.getImageData(0,0,300,300);
 
-            // var ef2cvs =document.getElementById("Effect2");
-            // var ef2ctx = ef2cvs.getContext('2d');
+            var ef2cvs =document.getElementById("Effect2");
+            var ef2ctx = ef2cvs.getContext('2d');
             // var ef2img = ef2ctx.getImageData(0,0,300,300);
 
-            // var ef3cvs =document.getElementById("Effect3");
-            // var ef3ctx = ef3cvs.getContext('2d');
+            var ef3cvs =document.getElementById("Effect3");
+            var ef3ctx = ef3cvs.getContext('2d');
             // var ef3img = ef3ctx.getImageData(0,0,300,300);
 
-            // var cvs =document.getElementById("");
-            // var ctx = cvs.getContext('2d');
+            var cvs =document.getElementById("");
+            var ctx = cvs.getContext('2d');
             // var img = ctx.getImageData(0,0,300,300);
 
             var cgcvs = document.getElementById("CardGenerateArea");
@@ -1158,6 +1158,10 @@
 
             cgctx.drawImage(createImage(bgcvs),0,0);
             cgctx.drawImage(createImage(cacvs),0,0);
+            cgctx.drawImage(createImage(frcvs),0,0);
+            cgctx.drawImage(createImage(ef1cvs),0,0);
+            cgctx.drawImage(createImage(ef2cvs),0,0);
+            cgctx.drawImage(createImage(ef3cvs),0,0);
 
 
             // cgctx.putImageData(bgimg,0,0);
