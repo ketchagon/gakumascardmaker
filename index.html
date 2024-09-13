@@ -1134,8 +1134,8 @@
             var bgimg = bgctx.getImageData(0,0,300,300);
 
             var cacvs = document.getElementById("CardArea");
-            // var cactx = cacvs.getContext('2d');
-            // var caimg = cactx.getImageData(0,0,300,300);
+            var cactx = cacvs.getContext('2d');
+            var caimg = cactx.getImageData(0,0,300,300);
 
             // var ef1cvs =document.getElementById("Effect1");
             // var ef1ctx = ef1cvs.getContext('2d');
@@ -1158,7 +1158,7 @@
 
 
             cgctx.putImageData(bgimg,0,0);
-            // cgctx.putImageData(caimg,0,0);
+            cgctx.putImageData(caimg,0,0);
             // cgctx.putImageData(frimg,0,0);
             // cgctx.putImageData(ef1img,0,0);
             // cgctx.putImageData(ef2img,0,0);
