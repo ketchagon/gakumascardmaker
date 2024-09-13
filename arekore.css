@@ -11,5 +11,9 @@
 
 @font-face{
     font-family: 'MyFont';
-    src:url()
+    src:url(NotoSansJP-VariableFont_wght.ttf);
+}
+
+body{
+    font-family:Myfont;
 }
