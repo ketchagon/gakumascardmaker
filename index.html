@@ -62,6 +62,9 @@
         <img src = "image/GenkiTsuika.png" width="50" height="50" onclick="genkiswich()"><br>
         <input type="range" id = "GenkiSlider" min="1" max="100" value="1" step="1">
         <br>
+        <h4>ステータスON,OFF</h4>
+        <input type="button" id = "status" onclick="statusswich()"></input><br>
+        <input type="range" id = "StutusSlider" min="1" max="100" value="1" step="1"><br>
         <h4>消費</h4>
         <img src = "image/GenkiShouhi.png" width="40" height="40" onclick="genkishouhi()">
         <img src = "image/TairyokuShouhi.png" width="40" height="40" onclick="tairyokushouhi()">
@@ -79,6 +82,7 @@
             <canvas id = "Shouhi" width = "300" height = "300"></canvas>
             <canvas id = "GenkiText" width="300" height="300"></canvas>
             <canvas id = "ShouhiText" width="300" height="300"></canvas>
+            <canvas id = "StatusText" width="300" height="300"></canvas>
         </div>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </section>
@@ -102,6 +106,7 @@
     <script>
         var efpos = 1;
         var gesw = 1;
+        var stsw = 1;
 
         window.onload = function(){
             var bgcvs = document.getElementById("Background");
@@ -149,6 +154,7 @@
             var gtctx = gtcvs.getContext('2d');
             gtctx.font = "bold 50px Arial";
             gtctx.textAlign = "center";
+            gtctx.strokeStyle = "#666666";
             gtctx.fillStyle = "#ffffff";
             gtctx.lineWidth = "2";
             gtctx.fillText(gsl.value,250,65);
@@ -159,10 +165,22 @@
             var ssctx = sscvs.getContext('2d');
             ssctx.font ="bold 50px Arial";
             ssctx.textAlign = "center";
+            ssctx.strokeStyle = "#666666";
             ssctx.fillStyle = "#ffffff";
             ssctx.lineWidth = "2";
             ssctx.fillText(ssl.value,250,280);
             ssctx.strokeText(ssl.value,250,280);
+
+            var stl = document.getElementById("StatusSlider");
+            var stcvs = document.getElementById("StatusText");
+            var stctx = stcvs.getContext('2d');
+            stctx.font ="bold 80px Arial";
+            stctx.textAlign = "left";
+            stctx.strokeStyle = "#ffffff";
+            stctx.fillStyle = "#666666";
+            stctx.lineWidth = "3";
+            stctx.fillText(stl.value,3,70);
+            stctx.strokeText(stl.value,3,70);
         }
 
 
@@ -1033,6 +1051,28 @@
             } 
         }
 
+        function statusswich(){
+            var stl = document.getElementById("StatusSlider");
+            var stcvs = document.getElementById("StatusText");
+            var stctx = stcvs.getContext('2d');
+            
+            if(stsw == 1){
+                stctx.clearRect(0, 0, 300, 300);
+                stsw = 0;
+            }
+            else{
+                stctx.font = "bold 80px Arial"
+                stctx.textAlign = "left";
+                stctx.strokeStyle = "#ffffff";
+                stctx.fillStyle = "#666666";
+                stctx.lineWidth = "3";
+                stctx.clearRect(0,0,300,300);
+                stctx.fillText(stl.value,1,70);
+                stctx.strokeText(stl.value,1,70);
+                stsw = 1;
+            } 
+        }
+
         function genkishouhi(){
             var shcvs = document.getElementById("Shouhi");
             var shctx = shcvs.getContext('2d');
@@ -1128,11 +1168,31 @@
             ssctx.strokeText(ssl.value,250,280);
         }
 
+        function statusup(){
+            var stl = document.getElementById("StatusSlider");
+            var stcvs = document.getElementById("StatusText");
+            var stctx = stcvs.getContext('2d');
+            stctx.font = "bold 80px Arial"
+            stctx.textAlign = "left";
+            stctx.strokeStyle = "#ffffff";
+            stctx.fillStyle = "#666666";
+            stctx.lineWidth = "3";
+            
+            if(stsw == 1){
+                stctx.clearRect(0,0,300,300);
+                stctx.fillText(stl.value,3,70);
+                stctx.strokeText(stl.value,3,70);
+            }
+        }
+
         var gsl = document.getElementById("GenkiSlider");
         gsl.addEventListener('input',genkitsuika);
 
         var ssl = document.getElementById("ShouhiSlider");
         ssl.addEventListener('input',cost);
+
+        var stl = document.getElementById("StatusSlider");
+        stl.addEventListener('input',statusup);
 
         
 
@@ -1170,6 +1230,9 @@
             var cgcvs = document.getElementById("CardGenerateArea");
             var cgctx = cgcvs.getContext('2d');
 
+            var stcvs =document.getElementById("StatusText");
+            var stctx = stcvs.getContext('2d');
+
             // var cvs =document.getElementById("");
             // var ctx = cvs.getContext('2d');
 
@@ -1184,6 +1247,7 @@
             cgctx.drawImage(createImage(gtcvs),0,0);
             cgctx.drawImage(createImage(shcvs),0,0);
             cgctx.drawImage(createImage(sscvs),0,0);
+            cgctx.drawImage(createImage(stcvs),0,0);
         }
 
         var createImage = function(cvs){
