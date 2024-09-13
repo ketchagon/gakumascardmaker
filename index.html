@@ -91,7 +91,6 @@
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <input type = "button" id = "generate" value = "生成" onclick="Generate()"><br>
         <div class="layer-wrap">
-            <canvas id = "kara" width = "300" height = "300"  style="border:4px solid"></canvas>
             <canvas id = "CardGenerateArea" width="300" height="300"></canvas>
         </div>
         <br>
@@ -383,7 +382,7 @@
 
         function genki(){
             var efimg = new Image();
-            efimg.src = "image/genki.png";
+            efimg.src = "image/Genki.png";
             if(efpos == 1){
                 var efcvs = document.getElementById("Effect1");
                 var efctx = efcvs.getContext('2d'); 
@@ -413,7 +412,7 @@
 
         function tairyokukaifuku(){
             var efimg = new Image();
-            efimg.src = "image/Tairyokukaifuku.png";
+            efimg.src = "image/TairyokuKaifuku.png";
             if(efpos == 1){
                 
                 var efcvs = document.getElementById("Effect1");
@@ -1131,48 +1130,51 @@
         function Generate(){
             var bgcvs =document.getElementById("Background");
             var bgctx = bgcvs.getContext('2d');
-            // var bgimg = bgctx.getImageData(0,0,300,300);
 
             var cacvs = document.getElementById("CardArea");
             var cactx = cacvs.getContext('2d');
-            // var caimg = cactx.getImageData(0,0,300,300);
 
             var frcvs = document.getElementById("Frame");
             var frctx = frcvs.getContext('2d');
 
-            var ef1cvs =document.getElementById("Effect1");
+            var ef1cvs = document.getElementById("Effect1");
             var ef1ctx = ef1cvs.getContext('2d');
-            // var ef1img = ef1ctx.getImageData(0,0,300,300);
 
-            var ef2cvs =document.getElementById("Effect2");
+            var ef2cvs = document.getElementById("Effect2");
             var ef2ctx = ef2cvs.getContext('2d');
-            // var ef2img = ef2ctx.getImageData(0,0,300,300);
 
-            var ef3cvs =document.getElementById("Effect3");
+            var ef3cvs = document.getElementById("Effect3");
             var ef3ctx = ef3cvs.getContext('2d');
-            // var ef3img = ef3ctx.getImageData(0,0,300,300);
 
-            // var cvs =document.getElementById("");
-            // var ctx = cvs.getContext('2d');
-            // var img = ctx.getImageData(0,0,300,300);
+            var gecvs = document.getElementById("Genki");
+            var gectx = gecvs.getContext('2d');
+
+            var gtcvs = document.getElementById("GenkiText");
+            var gtctx = gtcvs.getContext('2d');
+
+            var shcvs = document.getElementById("Shouhi");
+            var shctx = shcvs.getContext('2d');
+
+            var sscvs = document.getElementById("ShouhiText");
+            var ssctx = sscvs.getContext('2d');
 
             var cgcvs = document.getElementById("CardGenerateArea");
             var cgctx = cgcvs.getContext('2d');
 
+            // var cvs =document.getElementById("");
+            // var ctx = cvs.getContext('2d');
+
+            cgctx.cleraRect(0,0,300,300);
             cgctx.drawImage(createImage(bgcvs),0,0);
             cgctx.drawImage(createImage(cacvs),0,0);
             cgctx.drawImage(createImage(frcvs),0,0);
             cgctx.drawImage(createImage(ef1cvs),0,0);
             cgctx.drawImage(createImage(ef2cvs),0,0);
             cgctx.drawImage(createImage(ef3cvs),0,0);
-
-
-            // cgctx.putImageData(bgimg,0,0);
-            // cgctx.putImageData(caimg,0,0);
-            // cgctx.putImageData(frimg,0,0);
-            // cgctx.putImageData(ef1img,0,0);
-            // cgctx.putImageData(ef2img,0,0);
-            // cgctx.putImageData(ef3img,0,0);
+            cgctx.drawImage(createImage(gecvs),0,0);
+            cgctx.drawImage(createImage(gtcvs),0,0);
+            cgctx.drawImage(createImage(shcvs),0,0);
+            cgctx.drawImage(createImage(sscvs),0,0);
         }
 
         var createImage = function(cvs){
