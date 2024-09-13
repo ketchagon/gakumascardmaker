@@ -8,12 +8,3 @@
     top: 0;
     left: 0;
 }
-
-@font-face{
-    font-family: 'MyFont';
-    src:url(NotoSansJP-VariableFont_wght.ttf) format("truetype");
-}
-
-body{
-    font-family:Myfont;
-}
