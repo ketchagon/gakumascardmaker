@@ -150,7 +150,7 @@
             var gsl = document.getElementById("GenkiSlider");
             var gtcvs = document.getElementById("GenkiText");
             var gtctx = gtcvs.getContext('2d');
-            gtctx.font = "50px";
+            gtctx.font = "50px MyFont";
             gtctx.textAlign = "center";
             gtctx.fillStyle = "#ffffff";
             gtctx.lineWidth = "2";
@@ -160,7 +160,7 @@
             var ssl = document.getElementById("ShouhiSlider");
             var sscvs = document.getElementById("ShouhiText");
             var ssctx = sscvs.getContext('2d');
-            ssctx.font ="50px";
+            ssctx.font ="50px MyFont";
             ssctx.textAlign = "center";
             ssctx.fillStyle = "#ffffff";
             ssctx.lineWidth = "2";
@@ -1025,6 +1025,7 @@
                 geimg.onload = function(){
                     gectx.drawImage(geimg,205,5,90,90);
                 }
+                gtctx.font("50px MyFont");
                 gtctx.textAlign = "center";
                 gtctx.fillStyle = "#ffffff";
                 gtctx.lineWidth = "2";
@@ -1105,6 +1106,7 @@
             var gsl = document.getElementById("GenkiSlider");
             var gtcvs = document.getElementById("GenkiText");
             var gtctx = gtcvs.getContext('2d');
+            gtctx.font("50px MyFont");
             gtctx.textAlign = "center";
             gtctx.fillStyle = "#ffffff";
             gtctx.lineWidth = "2";
@@ -1120,6 +1122,7 @@
             var ssl = document.getElementById("ShouhiSlider");
             var sscvs = document.getElementById("ShouhiText");
             var ssctx = sscvs.getContext('2d');
+            ssctx.font =("50px MyFont");
             ssctx.textAlign = "center";
             ssctx.fillStyle = "#ffffff";
             ssctx.lineWidth = "2";
