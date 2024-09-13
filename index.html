@@ -83,7 +83,8 @@
 
     <section>
         <h2>画像</h2>
-        <input type = "file" onchange= "ImgChange(this.files,'CardArea')"></input><br><br>
+        <input type = "file" onchange= "ImgChange(this.files,'CardArea')"></input><br>
+        <input type = "button" id = "filereset" value = "リセット" onclick = "filereset()"></input><br>
         <div class = "layer-wrap">
             <canvas id = "kara" width = "300" height = "300"  style="border:4px solid"></canvas>
             <canvas id = "CardArea" width = "300" height = "300"></canvas>
@@ -197,6 +198,12 @@
                 gazo.src = event.target.result;
             }
             reader.readAsDataURL(files[0]);
+        }
+
+        function filereset(){
+            var cacvs = document.getElementById("CardArea");
+            var cactx = cacvs.getContext('2d');
+            cactx.crearRect(0,0,300,300);
         }
 
         function NAF(){
