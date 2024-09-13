@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>
+        学マススキルカードジェネレーター
+    </title>
+    <link rel="stylesheet" href="arekore.css">
+</head>
+<body>
+    <h1>学マススキルカードジェネレーター</h1>
+    <section>
+        <h2>フレーム</h2>
+        <img src = 'image/N_A_Frame.png' onclick="NAF()" width = "100" height = "100">
+        <img src = 'image/N_M_Frame.png' onclick="NMF()" width = "100" height = "100">
+        <img src = 'image/R_A_Frame.png' onclick="RAF()" width = "100" height = "100">
+        <img src = 'image/R_M_Frame.png' onclick="RMF()" width = "100" height = "100"><br>
+        <img src = 'image/SR_A_Frame.png' onclick="SRAF()" width = "100" height = "100">
+        <img src = 'image/SR_M_Frame.png' onclick="SRMF()" width = "100" height = "100">
+        <img src = 'image/SSR_A_Frame.png' onclick="SSRAF()" width = "100" height = "100">
+        <img src = 'image/SSR_M_Frame.png' onclick="SSRMF()" width = "100" height = "100"><br>
+        <img src = 'image/T_Frame.png' onclick="TF()" width = "100" height = "100"><br>
+        <div class = "layer-wrap">
+            <canvas id = "Background" width = "300" height = "300"></canvas>
+            <canvas id = "Frame" width = "300" height = "300"></canvas>
+            
+        </div><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+    </section>
+
+    <section>
+        <h2>アイコン</h2>
+        <h4>効果</h4>
+        <input type = "button" id = "effect1" onclick = "sita()" value = "下"></input>
+        <input type = "button" id = "effect2" onclick = "naka()" value = "中"></input>
+        <input type = "button" id = "effect3" onclick = "ue()" value = "上"></input><br>
+    
+        <img src = 'image/Genki.png' width = "50" height = "50" onclick = "genki()">
+        <img src = 'image/TairyokuKaifuku.png' width = "50" height = "50" onclick = "tairyokukaifuku()">
+        <img src = 'image/Kouinshou.png' width = "50" height = "50" onclick="kouinshou()">
+        <img src = 'image/Yaruki.png' width = "50" height = "50" onclick="yaruki()">
+        <img src = 'image/Kouchou.png' width = "50" height = "50" onclick="kouchou()">
+        <img src = 'image/Zekkouchou.png' width = "50" height = "50" onclick="zekkouchou()">
+        <img src = 'image/Shuchu.png' width = "50" height = "50" onclick="shuchu()"><br>
+        <img src = 'image/Percent.png' width = "50" height = "50" onclick="percent()">
+        <img src = 'image/ShouhiTairyokuGenshou.png' width = "50" height = "50" onclick="shouhitairyokugenshou()">
+        <img src = 'image/ShouhiTairyokuSakugen.png' width = "50" height = "50" onclick="shouhitairyokusakugen()">
+        <img src = 'image/CardShiyousuTsuika.png' width = "50" height = "50" onclick="cardshiyousutsuika()">
+        <img src = 'image/CardDraw.png' width = "50" height = "50" onclick="carddraw()">
+        <img src = 'image/Card2Bai.png' width = "50" height = "50" onclick="card2bai()">
+        <img src = 'image/TeikaJoutaiMukou.png' width = "50" height = "50" onclick="teikajoutaimukou()"><br>
+        <img src = 'image/NextTurn.png' width = "50" height = "50" onclick="nextturn()">
+        <img src = 'image/ExTurn.png' width = "50" height = "50" onclick="exturn()">
+        <img src = 'image/AfterTurn.png' width = "50" height = "50" onclick="afterturn()">
+        <img src = 'image/CardGenerate.png' width = "50" height = "50" onclick="cardgenerate()">
+        <img src = 'image/GenkiZoukaMukou.png' width = "50" height = "50" onclick="genkizoukamukou()">
+        <img src = 'image/ShouhiTairyokuZouka.png' width = "50" height = "50" onclick="shouhitairyokuzouka()"><br>
+        <input type = "button" id = "Efreset" value = "リセット" onclick="efreset()"></input><br>
+
+        <h4>元気ON,OFF</h4>
+        <img src = "image/GenkiTsuika.png" width="50" height="50" onclick="genkiswich()"><br>
+        <input type="range" id = "GenkiSlider" min="1" max="100" value="1" step="1">
+        <br>
+        <h4>消費</h4>
+        <img src = "image/GenkiShouhi.png" width="40" height="40" onclick="genkishouhi()">
+        <img src = "image/TairyokuShouhi.png" width="40" height="40" onclick="tairyokushouhi()">
+        <img src = "image/Kouinshou.png" width="40" height="40" onclick="kouinshoushouhi()">
+        <img src = "image/Yaruki.png" width="40" height="40" onclick="yarukishouhi()">
+        <img src = "image/Kouchou.png" width="40" height="40" onclick="kouchoushouhi()">
+        <img src = "image/Shuchu.png" width="40" height="40" onclick="shuchushouhi()"><br>
+        <input type="range" id = "ShouhiSlider" min="-10" max="0" value="0" step="1"><br>
+        <div class = "layer-wrap">
+            <canvas id = "kara" width = "300" height = "300"  style="border:4px solid"></canvas>
+            <canvas id = "Effect1" width = "300" height = "300" ></canvas>
+            <canvas id = "Effect2" width = "300" height = "300" ></canvas>
+            <canvas id = "Effect3" width = "300" height = "300" ></canvas>
+            <canvas id = "Genki" width = "300" height = "300"></canvas>
+            <canvas id = "Shouhi" width = "300" height = "300"></canvas>
+            <canvas id = "GenkiText" width="300" height="300"></canvas>
+            <canvas id = "ShouhiText" width="300" height="300"></canvas>
+        </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </section>
+
+    <section>
+        <h2>画像</h2>
+        <input type = "file" onchange= "ImgChange(this.files,'CardArea')"></input><br><br>
+        <div class = "layer-wrap">
+            <canvas id = "kara" width = "300" height = "300"  style="border:4px solid"></canvas>
+            <canvas id = "CardArea" width = "300" height = "300"></canvas>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <input type = "button" id = "generate" value = "生成" onclick="Generate()"><br>
+        <div class="layer-wrap">
+            <canvas id = "kara" width = "300" height = "300"  style="border:4px solid"></canvas>
+            <canvas id = "CardGenerateArea" width="300" height="300"></canvas>
+        </div>
+        <br>
+    </section>
+
+    <script>
+        var efpos = 1;
+        var gesw = 1;
+
+        window.onload = function(){
+            var bgcvs = document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = new Image();
+            bgimg.src = "image/N_Back.png";
+            bgimg.onload = function(){
+                bgctx.drawImage(bgimg,0,0,300,300);
+            }
+
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            var frimg = new Image();
+            frimg.src = "image/N_A_Frame.png";
+            frimg.onload = function(){
+                frctx.drawImage(frimg,0,0,300,300);
+            }
+
+            var efcvs = document.getElementById("Effect1");
+            var efctx = efcvs.getContext('2d');
+            var efimg = new Image();
+            efimg.src = "image/Genki.png";
+            efimg.onload = function(){
+                efctx.drawImage(efimg,2,228,70,70);
+            }
+
+            var gecvs = document.getElementById("Genki");
+            var gectx = gecvs.getContext('2d');
+            var geimg = new Image();
+            geimg.src = "image/GenkiTsuika.png";
+            geimg.onload = function(){
+                gectx.drawImage(geimg,205,5,90,90);
+            }
+
+            var shcvs = document.getElementById("Shouhi");
+            var shctx = shcvs.getContext('2d');
+            var shimg = new Image();
+            shimg.src = "image/GenkiShouhi.png";
+            shimg.onload = function(){
+                shctx.drawImage(shimg,205,215,90,90);
+            }
+
+            var gsl = document.getElementById("GenkiSlider");
+            var gtcvs = document.getElementById("GenkiText");
+            var gtctx = gtcvs.getContext('2d');
+            gtctx.font = "50px 凸版文久見出しゴシック"
+            gtctx.textAlign = "center";
+            gtctx.fillStyle = "#ffffff";
+            gtctx.lineWidth = "2";
+            gtctx.fillText(gsl.value,250,65);
+            gtctx.strokeText(gsl.value,250,65);
+
+            var ssl = document.getElementById("ShouhiSlider");
+            var sscvs = document.getElementById("ShouhiText");
+            var ssctx = sscvs.getContext('2d');
+            ssctx.font = "50px 凸版文久見出しゴシック"
+            ssctx.textAlign = "center";
+            ssctx.fillStyle = "#ffffff";
+            ssctx.lineWidth = "2";
+            ssctx.fillText(ssl.value,250,280);
+            ssctx.strokeText(ssl.value,250,280);
+        }
+
+
+        function ImgChange(files,CardArea){
+            var cacvs = document.getElementById("CardArea");
+            var cactx = cacvs.getContext('2d');
+            var reader = new FileReader();
+            reader.onload = function(event){
+                var gazo = new Image();
+                gazo.onload = function(){
+                    var gazoW = gazo.naturalWidth;
+                    var gazoH = gazo.naturalHeight;
+                    var 縦横比 = gazoH / gazoW;
+                    if(縦横比 <= 1){
+                        var afterW = 300;
+                        var after = 1 / gazoW;
+                        var afterH = after * gazoH;
+                    }
+                    else{
+                        var afterH = 300;
+                        var after = 1 / gazoH;
+                        var afterW = after * gazoW;
+                    }
+                    cactx.clearRect(0, 0, 300, 300);
+                    cactx.drawImage(gazo,0,0,300,300);
+                    cactx.clearRect(0, 0, 30, 30); //左上
+                    cactx.clearRect(270, 0, 30, 30); //右上
+                    cactx.clearRect(0, 270, 30, 30); //左下
+                    cactx.clearRect(270, 270, 30, 30); //右下
+                    cactx.clearRect(0, 0, 300, 2); //上
+                    cactx.clearRect(0, 298, 300, 2); //下
+                    cactx.clearRect(0, 0, 10, 300); //左
+                    cactx.clearRect(290, 0, 10, 300); //右
+                }
+                gazo.src = event.target.result;
+            }
+            reader.readAsDataURL(files[0]);
+        }
+
+        function NAF(){
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            var frimg = new Image();
+            frimg.src = "image/N_A_Frame.png";
+            frimg.onload = function(){
+                frctx.clearRect(0, 0, 300, 300);
+                frctx.drawImage(frimg,0,0,300,300);
+            }
+            var bgcvs = document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = new Image();
+            bgimg.src = "image/N_Back.png";
+            bgimg.onload = function(){
+                bgctx.clearRect(0, 0, 300, 300);
+                bgctx.drawImage(bgimg,0,0,300,300);
+            }
+        }
+
+        function NMF(){
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            var frimg = new Image();
+            frimg.src = "image/N_M_Frame.png";
+            frimg.onload = function(){
+                frctx.clearRect(0, 0, 300, 300);
+                frctx.drawImage(frimg,0,0,300,300);
+            }
+            var bgcvs = document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = new Image();
+            bgimg.src = "image/N_Back.png";
+            bgimg.onload = function(){
+                bgctx.clearRect(0, 0, 300, 300);
+                bgctx.drawImage(bgimg,0,0,300,300);
+            }
+        }
+
+        function RAF(){
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            var frimg = new Image();
+            frimg.src = "image/R_A_Frame.png";
+            frimg.onload = function(){
+                frctx.clearRect(0, 0, 300, 300);
+                frctx.drawImage(frimg,0,0,300,300);
+            }
+            var bgcvs = document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = new Image();
+            bgimg.src = "image/R_Back.png";
+            bgimg.onload = function(){
+                bgctx.clearRect(0, 0, 300, 300);
+                bgctx.drawImage(bgimg,0,0,300,300);
+            }
+        }
+
+        function RMF(){
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            var frimg = new Image();
+            frimg.src = "image/R_M_Frame.png";
+            frimg.onload = function(){
+                frctx.clearRect(0, 0, 300, 300);
+                frctx.drawImage(frimg,0,0,300,300);
+            }
+            var bgcvs = document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = new Image();
+            bgimg.src = "image/R_Back.png";
+            bgimg.onload = function(){
+                bgctx.clearRect(0, 0, 300, 300);
+                bgctx.drawImage(bgimg,0,0,300,300);
+            }
+        }
+
+        function SRAF(){
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            var frimg = new Image();
+            frimg.src = "image/SR_A_Frame.png";
+            frimg.onload = function(){
+                frctx.clearRect(0, 0, 300, 300);
+                frctx.drawImage(frimg,0,0,300,300);
+            }
+            var bgcvs = document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = new Image();
+            bgimg.src = "image/SR_Back.png";
+            bgimg.onload = function(){
+                bgctx.clearRect(0, 0, 300, 300);
+                bgctx.drawImage(bgimg,0,0,300,300);
+            }
+        }
+
+        function SRMF(){
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            var frimg = new Image();
+            frimg.src = "image/SR_M_Frame.png";
+            frimg.onload = function(){
+                frctx.clearRect(0, 0, 300, 300);
+                frctx.drawImage(frimg,0,0,300,300);
+            }
+            var bgcvs = document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = new Image();
+            bgimg.src = "image/SR_Back.png";
+            bgimg.onload = function(){
+                bgctx.clearRect(0, 0, 300, 300);
+                bgctx.drawImage(bgimg,0,0,300,300);
+            }
+        }
+
+        function SSRAF(){
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            var frimg = new Image();
+            frimg.src = "image/SSR_A_Frame.png";
+            frimg.onload = function(){
+                frctx.clearRect(0, 0, 300, 300);
+                frctx.drawImage(frimg,0,0,300,300);
+            }
+            var bgcvs = document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = new Image();
+            bgimg.src = "image/SSR_Back.png";
+            bgimg.onload = function(){
+                bgctx.clearRect(0, 0, 300, 300);
+                bgctx.drawImage(bgimg,0,0,300,300);
+            }
+        }
+
+        function SSRMF(){
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            var frimg = new Image();
+            frimg.src = "image/SSR_M_Frame.png";
+            frimg.onload = function(){
+                frctx.clearRect(0, 0, 300, 300);
+                frctx.drawImage(frimg,0,0,300,300);
+            }
+            var bgcvs = document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = new Image();
+            bgimg.src = "image/SSR_Back.png";
+            bgimg.onload = function(){
+                bgctx.clearRect(0, 0, 300, 300);
+                bgctx.drawImage(bgimg,0,0,300,300);
+            }
+        }
+
+        function TF(){
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            var frimg = new Image();
+            frimg.src = "image/T_Frame.png";
+            frimg.onload = function(){
+                frctx.clearRect(0, 0, 300, 300);
+                frctx.drawImage(frimg,0,0,300,300);
+            }
+            var bgcvs = document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = new Image();
+            bgimg.src = "image/T_Back.png";
+            bgimg.onload = function(){
+                bgctx.clearRect(0, 0, 300, 300);
+                bgctx.drawImage(bgimg,0,0,300,300);
+            }
+        }
+
+        function sita(){
+            efpos = 1;
+        }
+        function naka(){
+            efpos = 2;
+        }
+        function ue(){
+            efpos = 3;
+        }
+
+        function genki(){
+            var efimg = new Image();
+            efimg.src = "image/genki.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d'); 
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function tairyokukaifuku(){
+            var efimg = new Image();
+            efimg.src = "image/Tairyokukaifuku.png";
+            if(efpos == 1){
+                
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+        
+        function kouinshou(){
+            var efimg = new Image();
+            efimg.src = "image/Kouinshou.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function yaruki(){
+            var efimg = new Image();
+            efimg.src = "image/Yaruki.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function kouchou(){
+            var efimg = new Image();
+            efimg.src = "image/Kouchou.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function zekkouchou(){
+            var efimg = new Image();
+            efimg.src = "image/Zekkouchou.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function shuchu(){
+            var efimg = new Image();
+            efimg.src = "image/Shuchu.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function percent(){
+            var efimg = new Image();
+            efimg.src = "image/Percent.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function shouhitairyokugenshou(){
+            var efimg = new Image();
+            efimg.src = "image/ShouhiTairyokuGenshou.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function shouhitairyokusakugen(){
+            var efimg = new Image();
+            efimg.src = "image/ShouhiTairyokuSakugen.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function cardshiyousutsuika(){
+            var efimg = new Image();
+            efimg.src = "image/CardShiyousuTsuika.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function carddraw(){
+            var efimg = new Image();
+            efimg.src = "image/CardDraw.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function card2bai(){
+            var efimg = new Image();
+            efimg.src = "image/Card2Bai.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+        
+        function teikajoutaimukou(){
+            var efimg = new Image();
+            efimg.src = "image/TeikaJoutaiMukou.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function nextturn(){
+            var efimg = new Image();
+            efimg.src = "image/NextTurn.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function exturn(){
+            var efimg = new Image();
+            efimg.src = "image/ExTurn.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function afterturn(){
+            var efimg = new Image();
+            efimg.src = "image/AfterTurn.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function cardgenerate(){
+            var efimg = new Image();
+            efimg.src = "image/CardGenerate.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function shouhitairyokuzouka(){
+            var efimg = new Image();
+            efimg.src = "image/ShouhiTairyokuZouka.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function genkizoukamukou(){
+            var efimg = new Image();
+            efimg.src = "image/GenkiZoukaMukou.png";
+            if(efpos == 1){
+                var efcvs = document.getElementById("Effect1");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,228,70,70);
+                }
+            }
+            else if(efpos == 2){
+                var efcvs = document.getElementById("Effect2");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,163,70,70);
+                }
+            }
+            else{
+                var efcvs = document.getElementById("Effect3");
+                var efctx = efcvs.getContext('2d');
+                efimg.onload = function(){
+                    efctx.clearRect(0, 0, 300, 300);
+                    efctx.drawImage(efimg,2,98,70,70);
+                }
+            }
+            
+        }
+
+        function efreset(){
+            var ef1cvs = document.getElementById("Effect1");
+            var ef1ctx = ef1cvs.getContext('2d');
+            ef1ctx.clearRect(0, 0, 300, 300);
+
+            var ef2cvs = document.getElementById("Effect2");
+            var ef2ctx = ef2cvs.getContext('2d');
+            ef2ctx.clearRect(0, 0, 300, 300);
+
+            var ef3cvs = document.getElementById("Effect3");
+            var ef3ctx = ef3cvs.getContext('2d');
+            ef3ctx.clearRect(0, 0, 300, 300);
+        }
+
+        function genkiswich(){
+            var gecvs = document.getElementById("Genki");
+            var gectx = gecvs.getContext('2d');
+            var gsl = document.getElementById("GenkiSlider");
+            var gtcvs = document.getElementById("GenkiText");
+            var gtctx = gtcvs.getContext('2d');
+            
+            if(gesw == 1){
+                gectx.clearRect(0, 0, 300, 300);
+                gtctx.clearRect(0, 0, 300, 300);
+                gesw = 0;
+            }
+            else{
+                var geimg = new Image();
+                geimg.src = "image/GenkiTsuika.png";
+                geimg.onload = function(){
+                    gectx.drawImage(geimg,205,5,90,90);
+                }
+                gtctx.font = "50px 凸版文久見出しゴシック"
+                gtctx.textAlign = "center";
+                gtctx.fillStyle = "#ffffff";
+                gtctx.lineWidth = "2";
+                gtctx.clearRect(0,0,300,300);
+                gtctx.fillText(gsl.value,250,65);
+                gtctx.strokeText(gsl.value,250,65);
+                gesw = 1;
+            } 
+        }
+
+        function genkishouhi(){
+            var shcvs = document.getElementById("Shouhi");
+            var shctx = shcvs.getContext('2d');
+            var shimg = new Image();
+            shimg.src = "image/GenkiShouhi.png";
+            shimg.onload = function(){
+                shctx.clearRect(0,0,300,300);
+                shctx.drawImage(shimg,205,215,90,90);
+            }
+        }
+
+        function tairyokushouhi(){
+            var shcvs = document.getElementById("Shouhi");
+            var shctx = shcvs.getContext('2d');
+            var shimg = new Image();
+            shimg.src = "image/TairyokuShouhi.png";
+            shimg.onload = function(){
+                shctx.clearRect(0,0,300,300);
+                shctx.drawImage(shimg,205,215,90,90);
+            }
+        }
+
+        function kouinshoushouhi(){
+            var shcvs = document.getElementById("Shouhi");
+            var shctx = shcvs.getContext('2d');
+            var shimg = new Image();
+            shimg.src = "image/Kouinshou.png";
+            shimg.onload = function(){
+                shctx.clearRect(0,0,300,300);
+                shctx.drawImage(shimg,205,175,90,90);
+            }
+        }
+
+        function yarukishouhi(){
+            var shcvs = document.getElementById("Shouhi");
+            var shctx = shcvs.getContext('2d');
+            var shimg = new Image();
+            shimg.src = "image/Yaruki.png";
+            shimg.onload = function(){
+                shctx.clearRect(0,0,300,300);
+                shctx.drawImage(shimg,205,175,90,90);
+            }
+        }
+
+        function kouchoushouhi(){
+            var shcvs = document.getElementById("Shouhi");
+            var shctx = shcvs.getContext('2d');
+            var shimg = new Image();
+            shimg.src = "image/Kouchou.png";
+            shimg.onload = function(){
+                shctx.clearRect(0,0,300,300);
+                shctx.drawImage(shimg,205,175,90,90);
+            }
+        }
+
+        function shuchushouhi(){
+            var shcvs = document.getElementById("Shouhi");
+            var shctx = shcvs.getContext('2d');
+            var shimg = new Image();
+            shimg.src = "image/Shuchu.png";
+            shimg.onload = function(){
+                shctx.clearRect(0,0,300,300);
+                shctx.drawImage(shimg,205,175,90,90);
+            }
+        }
+
+        function genkitsuika(){
+            var gsl = document.getElementById("GenkiSlider");
+            var gtcvs = document.getElementById("GenkiText");
+            var gtctx = gtcvs.getContext('2d');
+            gtctx.font = "50px 凸版文久見出しゴシック"
+            gtctx.textAlign = "center";
+            gtctx.fillStyle = "#ffffff";
+            gtctx.lineWidth = "2";
+            
+            if(gesw == 1){
+                gtctx.clearRect(0,0,300,300);
+                gtctx.fillText(gsl.value,250,65);
+                gtctx.strokeText(gsl.value,250,65);
+            }
+        }
+
+        function cost(){
+            var ssl = document.getElementById("ShouhiSlider");
+            var sscvs = document.getElementById("ShouhiText");
+            var ssctx = sscvs.getContext('2d');
+            ssctx.font = "50px 凸版文久見出しゴシック"
+            ssctx.textAlign = "center";
+            ssctx.fillStyle = "#ffffff";
+            ssctx.lineWidth = "2";
+            ssctx.clearRect(0,0,300,300);
+            ssctx.fillText(ssl.value,250,280);
+            ssctx.strokeText(ssl.value,250,280);
+        }
+
+        var gsl = document.getElementById("GenkiSlider");
+        gsl.addEventListener('input',genkitsuika);
+
+        var ssl = document.getElementById("ShouhiSlider");
+        ssl.addEventListener('input',cost);
+
+        
+
+        function Generate(){
+            var bgcvs =document.getElementById("Background");
+            var bgctx = bgcvs.getContext('2d');
+            var bgimg = bgctx.getImageData(0,0,300,300);
+
+            // var cacvs = document.getElementById("CardArea");
+            // var cactx = cacvs.getContext('2d');
+            // var caimg = cactx.getImageData(0,0,300,300);
+
+            // var ef1cvs =document.getElementById("Effect1");
+            // var ef1ctx = ef1cvs.getContext('2d');
+            // var ef1img = ef1ctx.getImageData(0,0,300,300);
+
+            // var ef2cvs =document.getElementById("Effect2");
+            // var ef2ctx = ef2cvs.getContext('2d');
+            // var ef2img = ef2ctx.getImageData(0,0,300,300);
+
+            // var ef3cvs =document.getElementById("Effect3");
+            // var ef3ctx = ef3cvs.getContext('2d');
+            // var ef3img = ef3ctx.getImageData(0,0,300,300);
+
+            // var cvs =document.getElementById("");
+            // var ctx = cvs.getContext('2d');
+            // var img = ctx.getImageData(0,0,300,300);
+
+            var cgcvs = document.getElementById("CardGenerateArea");
+            var cgctx = cgcvs.getContext('2d');
+
+
+            cgctx.putImageData(bgimg,0,0);
+            // cgctx.putImageData(caimg,0,0);
+            // cgctx.putImageData(frimg,0,0);
+            // cgctx.putImageData(ef1img,0,0);
+            // cgctx.putImageData(ef2img,0,0);
+            // cgctx.putImageData(ef3img,0,0);
+        }
+
+        var createImage = function(cvs){
+            var ctimg = new Image();
+            ctimg.src = cvs.canvas.toDataURL();
+            return ctimg;
+        }
+    </script>
+
+</body>

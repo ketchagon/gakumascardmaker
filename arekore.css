@@ -1,0 +1,10 @@
+.layer-wrap {
+    width: 300px;
+    position: relative;
+  }
+   
+.layer-wrap canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
