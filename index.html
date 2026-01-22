@@ -189,14 +189,6 @@
                 efctx.drawImage(efimg,2,228,70,70);
             }
 
-            var gecvs = document.getElementById("Genki");
-            var gectx = gecvs.getContext('2d');
-            var geimg = new Image();
-            geimg.src = "image/GenkiTsuika.png";
-            geimg.onload = function(){
-                gectx.drawImage(geimg,205,5,90,90);
-            }
-
             var shcvs = document.getElementById("Shouhi");
             var shctx = shcvs.getContext('2d');
             var shimg = new Image();
@@ -204,17 +196,6 @@
             shimg.onload = function(){
                 shctx.drawImage(shimg,205,215,90,90);
             }
-
-            var gsl = document.getElementById("GenkiSlider");
-            var gtcvs = document.getElementById("GenkiText");
-            var gtctx = gtcvs.getContext('2d');
-            gtctx.font = "bold 60px Arial";
-            gtctx.textAlign = "center";
-            gtctx.strokeStyle = "#666666";
-            gtctx.fillStyle = "#ffffff";
-            gtctx.lineWidth = "2";
-            gtctx.fillText(gsl.value,250,70);
-            gtctx.strokeText(gsl.value,250,70);
 
             var ssl = document.getElementById("ShouhiSlider");
             var sscvs = document.getElementById("ShouhiText");
@@ -226,17 +207,6 @@
             ssctx.lineWidth = "2";
             ssctx.fillText(ssl.value,250,280);
             ssctx.strokeText(ssl.value,250,280);
-
-            var stl = document.getElementById("StatusSlider");
-            var stcvs = document.getElementById("StatusText");
-            var stctx = stcvs.getContext('2d');
-            stctx.font ="bold 80px Arial";
-            stctx.textAlign = "left";
-            stctx.strokeStyle = "#ffffff";
-            stctx.fillStyle = "#666666";
-            stctx.lineWidth = "3";
-            stctx.fillText(stl.value,3,70);
-            stctx.strokeText(stl.value,3,70);
         }
 
 
