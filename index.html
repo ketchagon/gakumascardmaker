@@ -344,13 +344,14 @@
             var plctx = plcvs.getContext('2d');
             if(plsw == 1){
                 plctx.clearRect(0,0,300,300);
-                plsw = 1;
+                plsw = 0;
             }
             else{
                 plimg.src = "image/Plus.png";
                 plimg.onload = function(){
                     plctx.drawImage(plimg,235,105,60,60);
                 }
+                plsw = 1;
             }
         }
 
