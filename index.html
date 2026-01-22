@@ -33,15 +33,15 @@
     
     <section>
         <h2>フレーム</h2>
-        <img src = 'image/N_A_Frame.png' onclick="NAF()" width = "100" height = "100">
-        <img src = 'image/N_M_Frame.png' onclick="NMF()" width = "100" height = "100">
-        <img src = 'image/R_A_Frame.png' onclick="RAF()" width = "100" height = "100">
-        <img src = 'image/R_M_Frame.png' onclick="RMF()" width = "100" height = "100"><br>
-        <img src = 'image/SR_A_Frame.png' onclick="SRAF()" width = "100" height = "100">
-        <img src = 'image/SR_M_Frame.png' onclick="SRMF()" width = "100" height = "100">
-        <img src = 'image/SSR_A_Frame.png' onclick="SSRAF()" width = "100" height = "100">
-        <img src = 'image/SSR_M_Frame.png' onclick="SSRMF()" width = "100" height = "100"><br>
-        <img src = 'image/T_Frame.png' onclick="TF()" width = "100" height = "100"><br>
+        <img src = 'image/N_A_Frame.png' onclick="Frame('N_A_Frame.png','N_Back.png')" width = "100" height = "100">
+        <img src = 'image/N_M_Frame.png' onclick="Frame('N_M_Frame.png','N_Back.png')" width = "100" height = "100">
+        <img src = 'image/R_A_Frame.png' onclick="Frame('R_A_Frame.png','R_Back.png')" width = "100" height = "100">
+        <img src = 'image/R_M_Frame.png' onclick="Frame('R_M_Frame.png','R_Back.png')" width = "100" height = "100"><br>
+        <img src = 'image/SR_A_Frame.png' onclick="Frame('SR_A_Frame.png','SR_Back.png')" width = "100" height = "100">
+        <img src = 'image/SR_M_Frame.png' onclick="Frame('SR_M_Frame.png','SR_Back.png')" width = "100" height = "100">
+        <img src = 'image/SSR_A_Frame.png' onclick="Frame('SSR_A_Frame.png','SSR_Back.png')" width = "100" height = "100">
+        <img src = 'image/SSR_M_Frame.png' onclick="Frame('SSR_M_Frame.png','SSR_Back.png')" width = "100" height = "100"><br>
+        <img src = 'image/T_Frame.png' onclick="Frame('T_Frame.png','T_Back.png')" width = "100" height = "100"><br>
         <div class = "layer-wrap">
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
@@ -248,11 +248,11 @@
             cactx.clearRect(0,0,300,300);
         }
 
-        function NAF(){
+        function Frame(frame,back){
             var frcvs = document.getElementById("Frame");
             var frctx = frcvs.getContext('2d');
             var frimg = new Image();
-            frimg.src = "image/N_A_Frame.png";
+            frimg.src = `image/${frame}`;
             frimg.onload = function(){
                 frctx.clearRect(0, 0, 300, 300);
                 frctx.drawImage(frimg,0,0,300,300);
@@ -260,159 +260,7 @@
             var bgcvs = document.getElementById("Background");
             var bgctx = bgcvs.getContext('2d');
             var bgimg = new Image();
-            bgimg.src = "image/N_Back.png";
-            bgimg.onload = function(){
-                bgctx.clearRect(0, 0, 300, 300);
-                bgctx.drawImage(bgimg,0,0,300,300);
-            }
-        }
-
-        function NMF(){
-            var frcvs = document.getElementById("Frame");
-            var frctx = frcvs.getContext('2d');
-            var frimg = new Image();
-            frimg.src = "image/N_M_Frame.png";
-            frimg.onload = function(){
-                frctx.clearRect(0, 0, 300, 300);
-                frctx.drawImage(frimg,0,0,300,300);
-            }
-            var bgcvs = document.getElementById("Background");
-            var bgctx = bgcvs.getContext('2d');
-            var bgimg = new Image();
-            bgimg.src = "image/N_Back.png";
-            bgimg.onload = function(){
-                bgctx.clearRect(0, 0, 300, 300);
-                bgctx.drawImage(bgimg,0,0,300,300);
-            }
-        }
-
-        function RAF(){
-            var frcvs = document.getElementById("Frame");
-            var frctx = frcvs.getContext('2d');
-            var frimg = new Image();
-            frimg.src = "image/R_A_Frame.png";
-            frimg.onload = function(){
-                frctx.clearRect(0, 0, 300, 300);
-                frctx.drawImage(frimg,0,0,300,300);
-            }
-            var bgcvs = document.getElementById("Background");
-            var bgctx = bgcvs.getContext('2d');
-            var bgimg = new Image();
-            bgimg.src = "image/R_Back.png";
-            bgimg.onload = function(){
-                bgctx.clearRect(0, 0, 300, 300);
-                bgctx.drawImage(bgimg,0,0,300,300);
-            }
-        }
-
-        function RMF(){
-            var frcvs = document.getElementById("Frame");
-            var frctx = frcvs.getContext('2d');
-            var frimg = new Image();
-            frimg.src = "image/R_M_Frame.png";
-            frimg.onload = function(){
-                frctx.clearRect(0, 0, 300, 300);
-                frctx.drawImage(frimg,0,0,300,300);
-            }
-            var bgcvs = document.getElementById("Background");
-            var bgctx = bgcvs.getContext('2d');
-            var bgimg = new Image();
-            bgimg.src = "image/R_Back.png";
-            bgimg.onload = function(){
-                bgctx.clearRect(0, 0, 300, 300);
-                bgctx.drawImage(bgimg,0,0,300,300);
-            }
-        }
-
-        function SRAF(){
-            var frcvs = document.getElementById("Frame");
-            var frctx = frcvs.getContext('2d');
-            var frimg = new Image();
-            frimg.src = "image/SR_A_Frame.png";
-            frimg.onload = function(){
-                frctx.clearRect(0, 0, 300, 300);
-                frctx.drawImage(frimg,0,0,300,300);
-            }
-            var bgcvs = document.getElementById("Background");
-            var bgctx = bgcvs.getContext('2d');
-            var bgimg = new Image();
-            bgimg.src = "image/SR_Back.png";
-            bgimg.onload = function(){
-                bgctx.clearRect(0, 0, 300, 300);
-                bgctx.drawImage(bgimg,0,0,300,300);
-            }
-        }
-
-        function SRMF(){
-            var frcvs = document.getElementById("Frame");
-            var frctx = frcvs.getContext('2d');
-            var frimg = new Image();
-            frimg.src = "image/SR_M_Frame.png";
-            frimg.onload = function(){
-                frctx.clearRect(0, 0, 300, 300);
-                frctx.drawImage(frimg,0,0,300,300);
-            }
-            var bgcvs = document.getElementById("Background");
-            var bgctx = bgcvs.getContext('2d');
-            var bgimg = new Image();
-            bgimg.src = "image/SR_Back.png";
-            bgimg.onload = function(){
-                bgctx.clearRect(0, 0, 300, 300);
-                bgctx.drawImage(bgimg,0,0,300,300);
-            }
-        }
-
-        function SSRAF(){
-            var frcvs = document.getElementById("Frame");
-            var frctx = frcvs.getContext('2d');
-            var frimg = new Image();
-            frimg.src = "image/SSR_A_Frame.png";
-            frimg.onload = function(){
-                frctx.clearRect(0, 0, 300, 300);
-                frctx.drawImage(frimg,0,0,300,300);
-            }
-            var bgcvs = document.getElementById("Background");
-            var bgctx = bgcvs.getContext('2d');
-            var bgimg = new Image();
-            bgimg.src = "image/SSR_Back.png";
-            bgimg.onload = function(){
-                bgctx.clearRect(0, 0, 300, 300);
-                bgctx.drawImage(bgimg,0,0,300,300);
-            }
-        }
-
-        function SSRMF(){
-            var frcvs = document.getElementById("Frame");
-            var frctx = frcvs.getContext('2d');
-            var frimg = new Image();
-            frimg.src = "image/SSR_M_Frame.png";
-            frimg.onload = function(){
-                frctx.clearRect(0, 0, 300, 300);
-                frctx.drawImage(frimg,0,0,300,300);
-            }
-            var bgcvs = document.getElementById("Background");
-            var bgctx = bgcvs.getContext('2d');
-            var bgimg = new Image();
-            bgimg.src = "image/SSR_Back.png";
-            bgimg.onload = function(){
-                bgctx.clearRect(0, 0, 300, 300);
-                bgctx.drawImage(bgimg,0,0,300,300);
-            }
-        }
-
-        function TF(){
-            var frcvs = document.getElementById("Frame");
-            var frctx = frcvs.getContext('2d');
-            var frimg = new Image();
-            frimg.src = "image/T_Frame.png";
-            frimg.onload = function(){
-                frctx.clearRect(0, 0, 300, 300);
-                frctx.drawImage(frimg,0,0,300,300);
-            }
-            var bgcvs = document.getElementById("Background");
-            var bgctx = bgcvs.getContext('2d');
-            var bgimg = new Image();
-            bgimg.src = "image/T_Back.png";
+            bgimg.src = `image/${back}`;
             bgimg.onload = function(){
                 bgctx.clearRect(0, 0, 300, 300);
                 bgctx.drawImage(bgimg,0,0,300,300);
