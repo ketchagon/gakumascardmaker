@@ -113,12 +113,13 @@
         <input type="button" id = "status" value="ON/OFF" onclick="statusswich()"></input><br>
         <input type="range" id = "StatusSlider" min="1" max="100" value="1" step="1"><br>
         <h4>消費</h4>
-        <img src = "image/GenkiShouhi.png" width="40" height="40" onclick="genkishouhi()">
-        <img src = "image/TairyokuShouhiryou.png" width="40" height="40" onclick="tairyokushouhi()">
-        <img src = "image/Kouinshou.png" width="40" height="40" onclick="kouinshoushouhi()">
-        <img src = "image/Yaruki.png" width="40" height="40" onclick="yarukishouhi()">
-        <img src = "image/Kouchou.png" width="40" height="40" onclick="kouchoushouhi()">
-        <img src = "image/Shuchu.png" width="40" height="40" onclick="shuchushouhi()"><br>
+        <img src = "image/GenkiShouhi.png" width="40" height="40" onclick="shouhi('Genki.png',215)">
+        <img src = "image/TairyokuShouhiryou.png" width="40" height="40" onclick="shouhi('TairyokuShouhiryou.png',215)">
+        <img src = "image/Kouinshou.png" width="40" height="40" onclick="shouhi('Kouinshou.png',175)">
+        <img src = "image/Yaruki.png" width="40" height="40" onclick="shouhi('Yaruki.png',175)">
+        <img src = "image/Kouchou.png" width="40" height="40" onclick="shouhi('Kouchou.png',175)">
+        <img src = "image/Shuchu.png" width="40" height="40" onclick="shouhi('Shuchu.png',175)">
+        <img src = "image/Zenryokuchi.png" width="40" height="40" onclick="shouhi('Zenryokuchi.png',175)"><br>
         <input type="range" id = "ShouhiSlider" min="-10" max="0" value="0" step="1"><br>
         <div class = "layer-wrap">
             <canvas id = "kara" width = "300" height = "300"  style="border:4px solid"></canvas>
@@ -383,6 +384,17 @@
             } 
         }
 
+        function shouhi(name,pos){
+            var shcvs = document.getElementById("Shouhi");
+            var shctx = shcvs.getContext('2d');
+            var shimg = new Image();
+            shimg.src = `image/${name}`;
+            shimg.onload = function(){
+                shctx.clearRect(0,0,300,300);
+                shctx.drawImage(shimg,205,pos,90,90);
+            }
+        }
+        
         function genkishouhi(){
             var shcvs = document.getElementById("Shouhi");
             var shctx = shcvs.getContext('2d');
