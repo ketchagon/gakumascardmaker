@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@500&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <h1>学マススキルカードメーカー</h1>
@@ -44,11 +48,14 @@
         <img src = 'image/Leg_A_Frame.png' onclick="Frame('Leg_A_Frame.png','SSR_Back.png')" width = "80" height = "80">
         <img src = 'image/Leg_M_Frame.png' onclick="Frame('Leg_M_Frame.png','SSR_Back.png')" width = "80" height = "80">
         <img src = 'image/T_Frame.png' onclick="Frame('T_Frame.png','T_Back.png')" width = "80" height = "80"><br>
-        <input type = 'button' value = "ON/OFF" id = "CaNaSw" onclick = "kari()"><br>
+        <h4>カード名</h4>
+        <input type = 'button' value = "ON/OFF" id = "cardname" onclick = "nameswitch()"><br>
+        <input type = 'text' id = "nametext" size = "20" value = "カード名を入力な"><br><br>
         <div class = "layer-wrap">
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
-            
+            <canvas id = "Sotowaku" width = "292" height = "340"  style="border:4px solid #444e62"></canvas>
+            <canvas id = "NameArea" width = "300" height = "340"></canvas>
         </div><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </section>
@@ -156,6 +163,7 @@
         <input type = "button" id = "download" value = "ダウンロード" onclick="Download()"><br>
         <div class="layer-wrap">
             <canvas id = "CardGenerateArea" width="300" height="300"></canvas>
+            <canvas id = "CardGenerateAreaName" width="300" height="340"></canvas>
         </div>
         <br>
     </section>
@@ -165,8 +173,8 @@
         var gesw = 0;
         var stsw = 0;
         var plsw = 0;
-
-        var karioki = 0;
+        var nasw = 1;
+        var cvna = "cgnctx";
 
         window.onload = function(){
             var bgcvs = document.getElementById("Background");
@@ -211,8 +219,33 @@
             ssctx.lineWidth = "2";
             ssctx.fillText(ssl.value,250,280);
             ssctx.strokeText(ssl.value,250,280);
+
+            var cnt =document.getElementById("nametext");
+            var cncvs =document.getElementById("NameArea");
+            var cnctx =cncvs.getContext('2d');
+            cnctx.font ="bold 25px 'IBM Plex Sans JP'";
+            cnctx.fillStyle = "#444e62";
+            cnctx.textAlign = 'center';
+            cnctx.fillText(cnt.value,150,330);
         }
 
+        function nameswitch(){
+            var nacvs = document.getElementById("NameArea");
+            var nactx = nacvs.getContext('2d');
+            var stcvs = document.getElementById("Sotowaku");
+            if (nasw == 1){
+                nacvs.style.display='none';
+                stcvs.style.display='none';
+                nasw = 0;
+                cvna = "cgctx";
+            }
+            else{
+                nacvs.style.display='block';
+                stcvs.style.display='block';
+                nasw = 1;
+                cvna = "cgnctx";
+            }
+        }
 
         function ImgChange(files,CardArea){
             var cacvs = document.getElementById("CardArea");
@@ -359,6 +392,17 @@
             } 
         }
 
+        function namechange(){
+            var cnt =document.getElementById("nametext");
+            var cncvs =document.getElementById("NameArea");
+            var cnctx =cncvs.getContext('2d');
+            cnctx.font ="bold 25px 'IBM Plex Sans JP'";
+            cnctx.fillStyle = "#444e62";
+            cnctx.textAlign = 'center';
+            cnctx.clearRect(0,0,300,340);
+            cnctx.fillText(cnt.value,150,330);
+        }
+
         function statusswich(){
             var stl = document.getElementById("StatusSlider");
             var stcvs = document.getElementById("StatusText");
@@ -447,6 +491,9 @@
         var stl = document.getElementById("StatusSlider");
         stl.addEventListener('input',statusup);
 
+        var ntc = document.getElementById("nametext");
+        ntc.addEventListener('input',namechange);
+
         
 
         function Generate(){
@@ -486,25 +533,35 @@
             var cgcvs = document.getElementById("CardGenerateArea");
             var cgctx = cgcvs.getContext('2d');
 
+            var cgncvs = document.getElementById("CardGenerateAreaName");
+            var cgnctx = cgcvs.getContext('2d');
+
             var stcvs =document.getElementById("StatusText");
             var stctx = stcvs.getContext('2d');
+
+            var nacvs =document.getElementById("NameArea");
+            var nactx = nacvs.getContext('2d');
 
             // var cvs =document.getElementById("");
             // var ctx = cvs.getContext('2d');
 
             cgctx.clearRect(0,0,300,300);
-            cgctx.drawImage(createImage(bgcvs),0,0);
-            cgctx.drawImage(createImage(cacvs),0,0);
-            cgctx.drawImage(createImage(frcvs),0,0);
-            cgctx.drawImage(createImage(ef1cvs),0,0);
-            cgctx.drawImage(createImage(ef2cvs),0,0);
-            cgctx.drawImage(createImage(ef3cvs),0,0);
-            cgctx.drawImage(createImage(plcvs),0,0);
-            cgctx.drawImage(createImage(gecvs),0,0);
-            cgctx.drawImage(createImage(gtcvs),0,0);
-            cgctx.drawImage(createImage(shcvs),0,0);
-            cgctx.drawImage(createImage(sscvs),0,0);
-            cgctx.drawImage(createImage(stcvs),0,0);
+            cgnctx.clearRect(0,0,300,340);
+            `${cvna}`.drawImage(createImage(bgcvs),0,0);
+            `${cvna}`.drawImage(createImage(cacvs),0,0);
+            `${cvna}`.drawImage(createImage(frcvs),0,0);
+            `${cvna}`.drawImage(createImage(ef1cvs),0,0);
+            `${cvna}`.drawImage(createImage(ef2cvs),0,0);
+            `${cvna}`.drawImage(createImage(ef3cvs),0,0);
+            `${cvna}`.drawImage(createImage(plcvs),0,0);
+            `${cvna}`.drawImage(createImage(gecvs),0,0);
+            `${cvna}`.drawImage(createImage(gtcvs),0,0);
+            `${cvna}`.drawImage(createImage(shcvs),0,0);
+            `${cvna}`.drawImage(createImage(sscvs),0,0);
+            `${cvna}`.drawImage(createImage(stcvs),0,0);
+            if(nasw == 1){
+                `${cvna}`.drawImage(createImage(nacvs),0,0);
+            }
         }
 
         var createImage = function(cvs){
@@ -514,24 +571,16 @@
         }
 
         function Download(){
-            var docvs = document.getElementById("CardGenerateArea");
+            if(nasw == 1){
+                var docvs = document.getElementById("CardGenerateAreaName");
+            }
+            else{
+                var docvs = document.getElementById("CardGenerateArea");
+            }
             let link = document.createElement("a");
             link.href = docvs.toDataURL("image/png");
             link.download = "OriginalCard.png"
             link.click();
-        }
-
-        function kari(){
-            var frcvs = document.getElementById("Frame");
-            var frctx = frcvs.getContext('2d');
-            if (karioki == 0){
-                frcvs.style.display='none';
-                karioki = 1;
-            }
-            else{
-                frcvs.style.display='block';
-                karioki = 0;
-            }
         }
     </script>
 
