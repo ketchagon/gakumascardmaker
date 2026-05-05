@@ -52,6 +52,7 @@
         <input type = 'button' value = "ON/OFF" id = "cardname" onclick = "nameswitch()"><br>
         <input type = 'text' id = "nametext" size = "20" value = "カード名を入力"><br><br>
         <div class = "layer-wrap">
+            <canvas id = "NameBack" width = "300" height = "340"></canvas>
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
             <canvas id = "NameArea" width = "300" height = "340"></canvas>
@@ -177,6 +178,11 @@
         var cvname = "cgnctx";
 
         window.onload = function(){
+            var nbcvs = document.getElementById("NameBack");
+            var nbctx = nbcvs.getContext('2d');
+            nbctx.fillStyle = "ffffff";
+            nbctx.fillRect(0,270,300,70);
+            
             var bgcvs = document.getElementById("Background");
             var bgctx = bgcvs.getContext('2d');
             var bgimg = new Image();
@@ -537,8 +543,11 @@
             var stcvs =document.getElementById("StatusText");
             var stctx = stcvs.getContext('2d');
 
-            var nacvs =document.getElementById("NameArea");
+            var nacvs = document.getElementById("NameArea");
             var nactx = nacvs.getContext('2d');
+
+            var nbcvs = document.getElementById("NameBack");
+            var nbctx = nbcvs.getContext('2d');
 
             // var cvs =document.getElementById("");
             // var ctx = cvs.getContext('2d');
@@ -546,6 +555,7 @@
             cgctx.clearRect(0,0,300,300);
             cgnctx.clearRect(0,0,300,340);
             if(nasw == 1){
+                cgnctx.drawImage(createImage(nbcvs),0,0);
                 cgnctx.drawImage(createImage(bgcvs),0,0);
                 cgnctx.drawImage(createImage(cacvs),0,0);
                 cgnctx.drawImage(createImage(frcvs),0,0);
