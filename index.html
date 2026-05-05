@@ -44,6 +44,7 @@
         <img src = 'image/Leg_A_Frame.png' onclick="Frame('Leg_A_Frame.png','SSR_Back.png')" width = "80" height = "80">
         <img src = 'image/Leg_M_Frame.png' onclick="Frame('Leg_M_Frame.png','SSR_Back.png')" width = "80" height = "80">
         <img src = 'image/T_Frame.png' onclick="Frame('T_Frame.png','T_Back.png')" width = "80" height = "80"><br>
+        <input type = 'button' value = "ON/OFF" id = "CaNaSw" onclick = "kari()"><br>
         <div class = "layer-wrap">
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
@@ -164,6 +165,8 @@
         var gesw = 0;
         var stsw = 0;
         var plsw = 0;
+
+        var karioki = 0;
 
         window.onload = function(){
             var bgcvs = document.getElementById("Background");
@@ -516,6 +519,19 @@
             link.href = docvs.toDataURL("image/png");
             link.download = "OriginalCard.png"
             link.click();
+        }
+
+        function kari(){
+            var frcvs = document.getElementById("Frame");
+            var frctx = frcvs.getContext('2d');
+            if (karioki == 0){
+                frcvs.style.display='none';
+                karioki = 1;
+            }
+            else{
+                frcvs.style.display='block';
+                karioki = 0;
+            }
         }
     </script>
 
