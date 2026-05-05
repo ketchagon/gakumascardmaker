@@ -50,7 +50,7 @@
         <img src = 'image/T_Frame.png' onclick="Frame('T_Frame.png','T_Back.png')" width = "80" height = "80"><br>
         <h4>カード名</h4>
         <input type = 'button' value = "ON/OFF" id = "cardname" onclick = "nameswitch()"><br>
-        <input type = 'text' id = "nametext" size = "20" value = "カード名を入力な"><br><br>
+        <input type = 'text' id = "nametext" size = "20" value = "カード名を入力"><br><br>
         <div class = "layer-wrap">
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
@@ -550,7 +550,7 @@
             if(nasw == 1){
                 cgnctx.drawImage(createImage(bgcvs),0,0);
                 cgnctx.drawImage(createImage(cacvs),0,0);
-                cgnctx.drawImage(createImage(frcvs),0,0);
+                //cgnctx.drawImage(createImage(frcvs),0,0);
                 cgnctx.drawImage(createImage(ef1cvs),0,0);
                 cgnctx.drawImage(createImage(ef2cvs),0,0);
                 cgnctx.drawImage(createImage(ef3cvs),0,0);
