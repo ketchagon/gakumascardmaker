@@ -54,8 +54,8 @@
         <div class = "layer-wrap">
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
+            <canvas id = "NameArea" width = "300" height = "340" style="border:4px solid #ff0000"></canvas>
             <canvas id = "Sotowaku" width = "292" height = "340"  style="border:4px solid #444e62"></canvas>
-            <canvas id = "NameArea" width = "300" height = "340"></canvas>
         </div><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </section>
@@ -163,7 +163,7 @@
         <input type = "button" id = "download" value = "ダウンロード" onclick="Download()"><br>
         <div class="layer-wrap">
             <canvas id = "CardGenerateArea" width="300" height="300"></canvas>
-            <canvas id = "CardGenerateAreaName" width="300" height="340" style="border:4px solid"></canvas>
+            <canvas id = "CardGenerateAreaName" width="300" height="340"></canvas>
         </div>
         <br>
     </section>
@@ -237,13 +237,11 @@
                 nacvs.style.display='none';
                 stcvs.style.display='none';
                 nasw = 0;
-                cvname = "cgctx";
             }
             else{
                 nacvs.style.display='block';
                 stcvs.style.display='block';
                 nasw = 1;
-                cvname = "cgnctx";
             }
         }
 
