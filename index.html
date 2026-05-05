@@ -496,7 +496,7 @@
 
         
 
-        function Generate(cvna){
+        function Generate(){
             var bgcvs =document.getElementById("Background");
             var bgctx = bgcvs.getContext('2d');
 
@@ -547,20 +547,34 @@
 
             cgctx.clearRect(0,0,300,300);
             cgnctx.clearRect(0,0,300,340);
-            `${cvna}`.drawImage(createImage(bgcvs),0,0);
-            `${cvna}`.drawImage(createImage(cacvs),0,0);
-            `${cvna}`.drawImage(createImage(frcvs),0,0);
-            `${cvna}`.drawImage(createImage(ef1cvs),0,0);
-            `${cvna}`.drawImage(createImage(ef2cvs),0,0);
-            `${cvna}`.drawImage(createImage(ef3cvs),0,0);
-            `${cvna}`.drawImage(createImage(plcvs),0,0);
-            `${cvna}`.drawImage(createImage(gecvs),0,0);
-            `${cvna}`.drawImage(createImage(gtcvs),0,0);
-            `${cvna}`.drawImage(createImage(shcvs),0,0);
-            `${cvna}`.drawImage(createImage(sscvs),0,0);
-            `${cvna}`.drawImage(createImage(stcvs),0,0);
             if(nasw == 1){
-                `${cvna}`.drawImage(createImage(nacvs),0,0);
+                cgnctx.drawImage(createImage(bgcvs),0,0);
+                cgnctx.drawImage(createImage(cacvs),0,0);
+                cgnctx.drawImage(createImage(frcvs),0,0);
+                cgnctx.drawImage(createImage(ef1cvs),0,0);
+                cgnctx.drawImage(createImage(ef2cvs),0,0);
+                cgnctx.drawImage(createImage(ef3cvs),0,0);
+                cgnctx.drawImage(createImage(plcvs),0,0);
+                cgnctx.drawImage(createImage(gecvs),0,0);
+                cgnctx.drawImage(createImage(gtcvs),0,0);
+                cgnctx.drawImage(createImage(shcvs),0,0);
+                cgnctx.drawImage(createImage(sscvs),0,0);
+                cgnctx.drawImage(createImage(stcvs),0,0);
+                cgnctx.drawImage(createImage(nacvs),0,0);
+            }
+            else{
+                cgctx.drawImage(createImage(bgcvs),0,0);
+                cgctx.drawImage(createImage(cacvs),0,0);
+                cgctx.drawImage(createImage(frcvs),0,0);
+                cgctx.drawImage(createImage(ef1cvs),0,0);
+                cgctx.drawImage(createImage(ef2cvs),0,0);
+                cgctx.drawImage(createImage(ef3cvs),0,0);
+                cgctx.drawImage(createImage(plcvs),0,0);
+                cgctx.drawImage(createImage(gecvs),0,0);
+                cgctx.drawImage(createImage(gtcvs),0,0);
+                cgctx.drawImage(createImage(shcvs),0,0);
+                cgctx.drawImage(createImage(sscvs),0,0);
+                cgctx.drawImage(createImage(stcvs),0,0);
             }
         }
 
