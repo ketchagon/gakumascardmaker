@@ -54,7 +54,7 @@
         <div class = "layer-wrap">
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
-            <canvas id = "NameArea" width = "300" height = "340" style="border:4px solid #ff0000"></canvas>
+            <canvas id = "NameArea" width = "300" height = "340"></canvas>
             <canvas id = "Sotowaku" width = "292" height = "340"  style="border:4px solid #444e62"></canvas>
         </div><br>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -532,7 +532,7 @@
             var cgctx = cgcvs.getContext('2d');
 
             var cgncvs = document.getElementById("CardGenerateAreaName");
-            var cgnctx = cgcvs.getContext('2d');
+            var cgnctx = cgncvs.getContext('2d');
 
             var stcvs =document.getElementById("StatusText");
             var stctx = stcvs.getContext('2d');
@@ -542,8 +542,6 @@
 
             // var cvs =document.getElementById("");
             // var ctx = cvs.getContext('2d');
-            console.log(cgncvs.width ,cgncvs.height);
-            console.log(nacvs.width ,nacvs.height)
 
             cgctx.clearRect(0,0,300,300);
             cgnctx.clearRect(0,0,300,340);
