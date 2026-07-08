@@ -1,16 +1,41 @@
 .layer-wrap {
-    width: 300px;
+    width :100%;
+    max-width: 300px;
     position: relative;
+    margin: auto;
   }
    
 .layer-wrap canvas {
     position: absolute;
     top: 0;
     left: 0;
+    height:auto;
+}
+
+input{
+  margin: 15px;
 }
 
 body {
+  text-align: center;
   font-family: "IBM Plex Sans JP", sans-serif;
   font-weight: 500;
   font-style: normal;
+}
+
+.space-y{
+  margin-bottom: 30px;
+}
+
+.pos-button{
+    border: 2px solid #888;
+    background: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pos-button.selected{
+    border: 3px solid #ffb300;
+    background: #fff3cd;
+    box-shadow: 0 0 8px rgba(255,179,0,.7);
 }
