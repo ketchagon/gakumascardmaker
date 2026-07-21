@@ -19,7 +19,7 @@
     <h1>学マススキルカードメーカー</h1>
     <section>
         <h2>はじめに</h2>
-        <p>・学園アイドルマスターのスキルカードっぽいものを作ることができます</p>
+        <p>・学園アイドルマスターのスキルカードっぽいものを作ることができる二次創作サイトであり、公式は全く関係ありません</p>
         <p>・素材は手書きなのでガバまみれです</p>
         <p>・初心者が作ったサイトなので使い勝手は諦めてください</p>
         <p>・不具合、文句、その他言いたいことがあれば制作者Twitter(現X)のDMや固定ツイにリプを送ってください</p>
@@ -58,9 +58,14 @@
     <section>
         <h2>アイコン</h2>
         <h4>効果</h4>
-        <input type = "button" id = "effect1" class="pos-button" onclick = "setPos(1)" value = "下"></input>
-        <input type = "button" id = "effect2" class="pos-button" onclick = "setPos(2)" value = "中"></input>
-        <input type = "button" id = "effect3" class="pos-button" onclick = "setPos(3)" value = "上"></input><br>
+        <input type = "button" id = "efnum3" class="eff-num" onclick = "effNum(3)" value = "~3個"></input>
+        <input type = "button" id = "efnum4" class="eff-num" onclick = "effNum(4)" value = "4個"></input>
+        <input type = "button" id = "efnum5" class="eff-num" onclick = "effNum(5)" value = "5個"></input><br>
+        <input type = "button" id = "effect1" class="pos-button" onclick = "setPos(1)" value = "1"></input>
+        <input type = "button" id = "effect2" class="pos-button" onclick = "setPos(2)" value = "2"></input>
+        <input type = "button" id = "effect3" class="pos-button" onclick = "setPos(3)" value = "3"></input>
+        <input type = "button" id = "effect4" class="pos-button" disabled = "true" onclick = "setPos(4)" value = "4"></input>
+        <input type = "button" id = "effect5" class="pos-button" disabled = "true" onclick = "setPos(5)" value = "5"></input><br>
     
         <img src = 'image/Genki.png' width = "50" height = "50" onclick = "setEffect('Genki.png')">
         <img src = 'image/TairyokuKaifuku.png' width = "50" height = "50" onclick = "setEffect('TairyokuKaifuku.png')">
@@ -143,6 +148,8 @@
             <canvas id = "Effect1" width = "300" height = "300" ></canvas>
             <canvas id = "Effect2" width = "300" height = "300" ></canvas>
             <canvas id = "Effect3" width = "300" height = "300" ></canvas>
+            <canvas id = "Effect4" width = "300" height = "300" ></canvas>
+            <canvas id = "Effect5" width = "300" height = "300" ></canvas>
             <canvas id = "Plus" width = "300" height = "300"></canvas>
             <canvas id = "Genki" width = "300" height = "300"></canvas>
             <canvas id = "Shouhi" width = "300" height = "300"></canvas>
@@ -177,7 +184,16 @@
         var stsw = 0;
         var plsw = 0;
         var nasw = 1;
+        var efnum = 3;
         var cvname = "cgnctx";
+
+        const posData = {
+            1:{id:"Effect1",y:228},
+            2:{id:"Effect2",y:163},
+            3:{id:"Effect3",y:98},
+            4:{id:"Effect4",y:93},
+            5:{id:"Effect5",y:88}
+        };
 
         window.onload = function(){
             var bgcvs = document.getElementById("Background");
@@ -318,18 +334,45 @@
             document.getElementById("effect1").classList.remove("selected");
             document.getElementById("effect2").classList.remove("selected");
             document.getElementById("effect3").classList.remove("selected");
+            document.getElementById("effect4").classList.remove("selected");
+            document.getElementById("effect5").classList.remove("selected");
 
             document.getElementById(`effect${pos}`).classList.add("selected");
+        }
+
+        function effNum(eNum){
+            efpos = 1;
+            efnum = eNum;
+
+            setPos(1);
+            efreset();
+
+            if(eNum==3){
+                document.getElementById("effect4").disabled = true;
+                document.getElementById("effect5").disabled = true;
+                posData[2].y = 163;
+                posData[3].y = 98;
+            }
+            else if(eNum==4){
+                document.getElementById("effect4").disabled = false;
+                document.getElementById("effect5").disabled = true;
+                posData[2].y = 183;
+                posData[3].y = 138;
+                posData[4].y = 93;
+            }
+            else{
+                document.getElementById("effect4").disabled = false;
+                document.getElementById("effect5").disabled = false;
+                posData[2].y = 193;
+                posData[3].y = 158;
+                posData[4].y = 123;
+                posData[5].y = 88;
+            }
         }
 
         function setEffect(Name){
             const efimg = new Image();
             efimg.src = `image/${Name}`;
-            const posData = {
-                1:{id:"Effect1",y:228},
-                2:{id:"Effect2",y:163},
-                3:{id:"Effect3",y:98}
-            };
             const pos = posData[efpos];
             if(!pos) return;
 
@@ -525,6 +568,12 @@
             var ef3cvs = document.getElementById("Effect3");
             var ef3ctx = ef3cvs.getContext('2d');
 
+            var ef4cvs = document.getElementById("Effect4");
+            var ef4ctx = ef4cvs.getContext('2d');
+
+            var ef5cvs = document.getElementById("Effect5");
+            var ef5ctx = ef5cvs.getContext('2d');
+
             var plcvs = document.getElementById("Plus");
             var plctx = ef3cvs.getContext('2d');
 
@@ -567,6 +616,8 @@
                 cgnctx.drawImage(createImage(ef1cvs),0,0);
                 cgnctx.drawImage(createImage(ef2cvs),0,0);
                 cgnctx.drawImage(createImage(ef3cvs),0,0);
+                cgnctx.drawImage(createImage(ef4cvs),0,0);
+                cgnctx.drawImage(createImage(ef5cvs),0,0);
                 cgnctx.drawImage(createImage(plcvs),0,0);
                 cgnctx.drawImage(createImage(gecvs),0,0);
                 cgnctx.drawImage(createImage(gtcvs),0,0);
@@ -582,6 +633,8 @@
                 cgctx.drawImage(createImage(ef1cvs),0,0);
                 cgctx.drawImage(createImage(ef2cvs),0,0);
                 cgctx.drawImage(createImage(ef3cvs),0,0);
+                cgctx.drawImage(createImage(ef4cvs),0,0);
+                cgctx.drawImage(createImage(ef5cvs),0,0);
                 cgctx.drawImage(createImage(plcvs),0,0);
                 cgctx.drawImage(createImage(gecvs),0,0);
                 cgctx.drawImage(createImage(gtcvs),0,0);
