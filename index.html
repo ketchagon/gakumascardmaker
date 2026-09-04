@@ -761,7 +761,8 @@
         }
 
         function Download(){
-            if(nasw == 1){
+            var nasw=document.getElementById("name-switch");
+            if(nasw.checked){
                 var docvs = document.getElementById("CardGenerateAreaName");
             }
             else{
