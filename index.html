@@ -142,9 +142,10 @@
         <img src = "image/Zenryokuchi.png" width="40" height="40" onclick="shouhi('Zenryokuchi.png',175)"><br>
         <input type="range" id = "ShouhiSlider" min="-99" max="0" value="0" step="1"><br>
         <div class = "layer-wrap">
+            <canvas id = "NameArea" width = "300" height = "340" style="background-color:#ffffff"></canvas>
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
-            <canvas id = "NameArea" width = "300" height = "340"></canvas>
+            
             <canvas id = "Sotowaku" width = "292" height = "340"  style="border:4px solid #444e62"></canvas>
             <canvas id = "Effect1" width = "300" height = "300" ></canvas>
             <canvas id = "Effect2" width = "300" height = "300" ></canvas>
@@ -398,6 +399,15 @@
             var ef3cvs = document.getElementById("Effect3");
             var ef3ctx = ef3cvs.getContext('2d');
             ef3ctx.clearRect(0, 0, 300, 300);
+
+            var ef4cvs = document.getElementById("Effect4");
+            var ef4ctx = ef3cvs.getContext('2d');
+            ef4ctx.clearRect(0, 0, 300, 300);
+
+            var ef5cvs = document.getElementById("Effect5");
+            var ef5ctx = ef5cvs.getContext('2d');
+            ef5ctx.clearRect(0, 0, 300, 300);
+
         }
 
         function plusswich(){
@@ -611,6 +621,7 @@
             cgctx.clearRect(0,0,300,300);
             cgnctx.clearRect(0,0,300,340);
             if(nasw == 1){
+                cgnctx.drawImage(createImage(nacvs),0,0);
                 cgnctx.drawImage(createImage(bgcvs),0,0);
                 cgnctx.drawImage(createImage(cacvs),0,0);
                 cgnctx.drawImage(createImage(frcvs),0,0);
@@ -625,7 +636,7 @@
                 cgnctx.drawImage(createImage(shcvs),0,0);
                 cgnctx.drawImage(createImage(sscvs),0,0);
                 cgnctx.drawImage(createImage(stcvs),0,0);
-                cgnctx.drawImage(createImage(nacvs),0,0);
+                
             }
             else{
                 cgctx.drawImage(createImage(bgcvs),0,0);
