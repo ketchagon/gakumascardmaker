@@ -245,6 +245,8 @@
             var cncvs =document.getElementById("NameArea");
             var cnctx =cncvs.getContext('2d');
             cnctx.font ="bold 25px 'IBM Plex Sans JP'";
+            cnctx.fillStyle="#ffffff";
+            cnctx.fillRect(0,0,300,340);
             cnctx.fillStyle = "#444e62";
             cnctx.textAlign = 'center';
             cnctx.fillText(cnt.value,150,330);
@@ -461,9 +463,10 @@
             var cncvs =document.getElementById("NameArea");
             var cnctx =cncvs.getContext('2d');
             cnctx.font ="bold 25px 'IBM Plex Sans JP'";
+            cnctx.fillStyle="#ffffff";
+            cnctx.fillRect(0,0,300,340);
             cnctx.fillStyle = "#444e62";
             cnctx.textAlign = 'center';
-            cnctx.clearRect(0,0,300,340);
             cnctx.fillText(cnt.value,150,330);
         }
 
