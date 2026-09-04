@@ -13,7 +13,7 @@
 }
 
 input{
-  margin: 15px;
+  margin: 5px;
 }
 
 body {
@@ -47,4 +47,61 @@ img{
 
 img:hover {
   border-color: #4a90e2;
+}
+
+.toggle-label{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+input[type='checkbox']{
+  position: absolute;
+  width: 0px;
+  height: 0px;
+}
+
+.base{
+  width: 56px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: #ddd;
+}
+
+input:checked ~ .base{
+  background-color: #00ff00;
+}
+
+.circle{
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: #fff;
+  transition: 0.2s;
+}
+
+input:checked ~ .circle{
+  transform: translateX(100%);
+  transition: 0.2s;
+}
+
+.toggle-switch{
+  position: relative;
+}
+
+fieldset{
+  border: 0px;
+}
+
+.li-area{
+  text-align: center;
+}
+
+ul{
+  display: inline-block;
+  text-align: left;
 }
