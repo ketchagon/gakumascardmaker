@@ -215,7 +215,7 @@
             <canvas id = "NameArea" width = "300" height = "340" disabled = "true"></canvas>
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
-            <canvas id = "Sotowaku" width = "292" height = "340"  style="border:4px solid #444e62"></canvas>
+            <canvas id = "Sotowaku" width = "292" height = "340"  style="border:4px solid #444e62" disabled = "true"></canvas>
             <canvas id = "Effect1" width = "300" height = "300" ></canvas>
             <canvas id = "Effect2" width = "300" height = "300" ></canvas>
             <canvas id = "Effect3" width = "300" height = "300" ></canvas>
@@ -326,18 +326,13 @@
             var stcvs = document.getElementById("Sotowaku");
             var natxt=document.getElementById("nametext");
             if (!(nasw.checked)){
-                nacvs.style.display='none';
-                stcvs.style.display='none';
-                nasw = 0;
                 cvname = "cgctx";
             }
             else{
-                nacvs.style.display='block';
-                stcvs.style.display='block';
-                nasw = 1;
                 cvname = "cgnctx";
             }
             natxt.disabled=!(natxt.disabled);
+            stcvs.disabled=!(stcvs.disabled);
             
         }
 
