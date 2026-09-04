@@ -150,13 +150,13 @@
             </label>
 
             <fieldset id="genkiArea" disabled="true">
-                <input type="button" onclick="numMinus('ipt-genki',100)" value="-100">
-                <input type="button" onclick="numMinus('ipt-genki',10)" value="-10">
-                <input type="button" onclick="numMinus('ipt-genki',1)" value="-1">
-                <input type="number" max="999" min="1" value="1" id="ipt-genki" oninput="numcut('ipt-genki')">
+                <input type="number" max="999" min="1" value="1" id="ipt-genki" oninput="numcut('ipt-genki')"><br>
                 <input type="button" onclick="numPlus('ipt-genki',1)" value="+1">
                 <input type="button" onclick="numPlus('ipt-genki',10)" value="+10">
-                <input type="button" onclick="numPlus('ipt-genki',100)" value="+100">
+                <input type="button" onclick="numPlus('ipt-genki',100)" value="+100"><br>
+                <input type="button" onclick="numMinus('ipt-genki',1)" value="-1">
+                <input type="button" onclick="numMinus('ipt-genki',10)" value="-10">
+                <input type="button" onclick="numMinus('ipt-genki',100)" value="-100">
             </fieldset>
         </div>
 
@@ -172,15 +172,15 @@
             </label>
 
             <fieldset id="statusArea" disabled="true">
-                <input type="button" onclick="numMinus('ipt-status',1000)" value="-1k">
-                <input type="button" onclick="numMinus('ipt-status',100)" value="-100">
-                <input type="button" onclick="numMinus('ipt-status',10)" value="-10">
-                <input type="button" onclick="numMinus('ipt-status',1)" value="-1">
-                <input type="number" max="9999" min="1" value="1" id="ipt-status" oninput="numcut('ipt-status')">
+                <input type="number" max="9999" min="1" value="1" id="ipt-status" oninput="numcut('ipt-status')"><br>
                 <input type="button" onclick="numPlus('ipt-status',1)" value="+1">
                 <input type="button" onclick="numPlus('ipt-status',10)" value="+10">
                 <input type="button" onclick="numPlus('ipt-status',100)" value="+100">
-                <input type="button" onclick="numPlus('ipt-status',1000)" value="+1k">
+                <input type="button" onclick="numPlus('ipt-status',1000)" value="+1k"><br>
+                <input type="button" onclick="numMinus('ipt-status',1)" value="-1">
+                <input type="button" onclick="numMinus('ipt-status',10)" value="-10">
+                <input type="button" onclick="numMinus('ipt-status',100)" value="-100">
+                <input type="button" onclick="numMinus('ipt-status',1000)" value="-1k">
             </fieldset>
         </div>
         <br>
@@ -199,14 +199,20 @@
         <img src = "image/GenkiShouhi.png" width="40" height="40" onclick="shouhi('GenkiShouhi.png',215)">
         <img src = "image/TairyokuShouhiryou.png" width="40" height="40" onclick="shouhi('TairyokuShouhiryou.png',215)">
         <img src = "image/Kouinshou.png" width="40" height="40" onclick="shouhi('Kouinshou.png',175)">
-        <img src = "image/Yaruki.png" width="40" height="40" onclick="shouhi('Yaruki.png',175)">
+        <img src = "image/Yaruki.png" width="40" height="40" onclick="shouhi('Yaruki.png',175)"><br>
         <img src = "image/Kouchou.png" width="40" height="40" onclick="shouhi('Kouchou.png',175)">
         <img src = "image/Zekkouchou.png" width="40" height="40" onclick="shouhi('Zekkouchou.png',175)">
         <img src = "image/Shuchu.png" width="40" height="40" onclick="shouhi('Shuchu.png',175)">
         <img src = "image/Zenryokuchi.png" width="40" height="40" onclick="shouhi('Zenryokuchi.png',175)"><br>
-        <input type="range" id = "ShouhiSlider" min="-99" max="0" value="0" step="1"><br>
+        <div>
+            <input type="number" id="ipt-shouhi" max="99" min="0" value="0" oninput="numcut('ipt-shouhi')"><br>
+            <input type="button" onclick="numPlus('ipt-shouhi',1)" value="+1">
+            <input type="button" onclick="numPlus('ipt-shouhi',10)" value="+10"><br>
+            <input type="button" onclick="numMinus('ipt-shouhi',1)" value="-1">
+            <input type="button" onclick="numMinus('ipt-shouhi',10)" value="-10"><br>
+        </div><br>
         <div class = "layer-wrap">
-            <canvas id = "NameArea" width = "300" height = "340" style="background-color:#ffffff;"></canvas>
+            <canvas id = "NameArea" width = "300" height = "340" disabled = "true"></canvas>
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
             <canvas id = "Sotowaku" width = "292" height = "340"  style="border:4px solid #444e62"></canvas>
@@ -288,7 +294,8 @@
                 shctx.drawImage(shimg,205,215,90,90);
             }
 
-            var ssl = document.getElementById("ShouhiSlider");
+            var ship = document.getElementById('ipt-shouhi');
+            var shnum = Number(ship.value)* (-1);
             var sscvs = document.getElementById("ShouhiText");
             var ssctx = sscvs.getContext('2d');
             ssctx.font ="bold 60px Arial";
@@ -296,8 +303,8 @@
             ssctx.strokeStyle = "#666666";
             ssctx.fillStyle = "#ffffff";
             ssctx.lineWidth = "2";
-            ssctx.fillText(ssl.value,250,280);
-            ssctx.strokeText(ssl.value,250,280);
+            ssctx.fillText(shnum,250,280);
+            ssctx.strokeText(shnum,250,280);
 
             var cnt =document.getElementById("nametext");
             var cncvs =document.getElementById("NameArea");
@@ -489,6 +496,7 @@
                 }
                 plsw = 1;
             }
+            namechange();
         }
 
         function genkiswitch(){
@@ -522,6 +530,7 @@
         }
 
         function namechange(){
+            var plsw = document.getElementById("plus-switch");
             var cnt =document.getElementById("nametext");
             var cncvs =document.getElementById("NameArea");
             var cnctx =cncvs.getContext('2d');
@@ -530,7 +539,12 @@
             cnctx.fillRect(0,260,298,340);
             cnctx.fillStyle = "#444e62";
             cnctx.textAlign = 'center';
-            cnctx.fillText(cnt.value,150,330);
+            if(plsw.checked){
+                cnctx.fillText(cnt.value + "+",150,330);
+            }
+            else{
+                cnctx.fillText(cnt.value,150,330);
+            }
         }
 
         function statusswitch(){
@@ -587,7 +601,8 @@
         }
 
         function cost(){
-            var ssl = document.getElementById("ShouhiSlider");
+            var ship = document.getElementById("ipt-shouhi");
+            var shnum = Number(ship.value)*(-1);
             var sscvs = document.getElementById("ShouhiText");
             var ssctx = sscvs.getContext('2d');
             ssctx.font =("bold 60px Arial");
@@ -595,8 +610,8 @@
             ssctx.fillStyle = "#ffffff";
             ssctx.lineWidth = "2";
             ssctx.clearRect(0,0,300,300);
-            ssctx.fillText(ssl.value,250,280);
-            ssctx.strokeText(ssl.value,250,280);
+            ssctx.fillText(shnum,250,280);
+            ssctx.strokeText(shnum,250,280);
         }
 
         function statusup(){
@@ -621,15 +636,17 @@
             var num=document.getElementById(`${ipt}`);
             var numVal=Number(num.value);
             var numMax=Number(num.max);
+            var numMin=Number(num.min);
             if(numVal>numMax){
                 num.value=numMax;
             }
-            else if(numVal<1){
-                num.value='1';
+            else if(numVal<numMin){
+                num.value=numMin;
             }
             genkitsuika();
             shouhi();
             statusup();
+            cost();
         }
 
         function numPlus(tar,num){
@@ -647,11 +664,11 @@
         var gip= document.getElementById("ipt-genki");
         gip.addEventListener('input',genkitsuika);
 
-        var shin = document.getElementById("ShouhiSlider");
-        shin.addEventListener('input',cost);
-
         var stin = document.getElementById("ipt-status");
         stin.addEventListener('input',statusup);
+
+        var ship = document.getElementById('ipt-shouhi');
+        ship.addEventListener('input',cost);
 
         var ntc = document.getElementById("nametext");
         ntc.addEventListener('input',namechange);
