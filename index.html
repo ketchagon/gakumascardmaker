@@ -17,24 +17,27 @@
 </head>
 <body>
     <h1>学マススキルカードメーカー</h1>
-    <section>
+    <div class="li-area">
         <h2>はじめに</h2>
-        <p>・学園アイドルマスターのスキルカードっぽいものを作ることができる二次創作サイトであり、公式は全く関係ありません</p>
-        <p>・素材は手書きなのでガバまみれです</p>
-        <p>・初心者が作ったサイトなので使い勝手は諦めてください</p>
-        <p>・不具合、文句、その他言いたいことがあれば制作者Twitter(現X)のDMや固定ツイにリプを送ってください</p>
-        <p>
-            制作者:
-            <a href = "https://x.com/ketchagon" target="_blank" rel="noopener noreferrer">@ketchagon</a><br>
-            </p>
-    </section>
+        <ul>
+            <li>学マスのスキルカードっぽいものを作ることができる二次創作サイトであり、公式は全く関係ありません</li>
+            <li>素材は手書きとトレスなのでガバまみれです</li>
+            <li>初心者が作ったサイトなので使い勝手は諦めてください</li>
+            <li>不具合、文句、その他言いたいことがあれば制作者Twitter(現X)のDMや固定ツイにリプを送ってください</li>
+        </ul>
+    </div>
+    <p>制作者:<a href = "https://x.com/ketchagon" target="_blank" rel="noopener noreferrer">@ketchagon</a><br></p>
 
     <section>
-        <h2>使い方</h2>
-        <p>・なんとなく感じ取ってください</p>
-        <p>・ボタンとかが反応しなかったら何回か押してみてね</p>
-        <p>・画像を無理やりリサイズするのでなるべく正方形の画像を使ってください</p>
-        <p>・このサイトをお友達にも勧めてあげよう！</p>
+        <div class="li-area">
+            <h2>使い方</h2>
+            <ul>
+                <li>なんとなく感じ取ってください</li>
+                <li>ボタンとかが反応しなかったら何回か押してみてね</li>
+                <li>画像を無理やりリサイズするのでなるべく正方形の画像を使ってください</li>
+                <li>このサイトをお友達にも勧めてあげよう！</li>
+            </ul>
+        </div>
     </section>
     
     <section>
@@ -50,9 +53,18 @@
         <img src = 'image/Leg_A_Frame.png' onclick="Frame('Leg_A_Frame.png','SSR_Back.png')" width = "80" height = "80">
         <img src = 'image/Leg_M_Frame.png' onclick="Frame('Leg_M_Frame.png','SSR_Back.png')" width = "80" height = "80">
         <img src = 'image/T_Frame.png' onclick="Frame('T_Frame.png','T_Back.png')" width = "80" height = "80"><br>
-        <h4>カード名</h4>
-        <input type = 'button' value = "ON/OFF" id = "cardname" onclick = "nameswitch()"><br>
-        <input type = 'text' id = "nametext" size = "20" placeholder = "カード名を入力"><br>
+        
+        <div>
+            <h4>カード名</h4>
+            <label for="name-switch" class="toggle-label">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="name-switch" onclick="nameswitch()"/>
+                    <div class="circle"></div>
+                    <div class="base"></div>
+                </div>
+            </label>
+            <input type = 'text' id = "nametext" size = "20" placeholder = "カード名を入力" disabled="true"><br>
+        </div>
     </section>
 
     <section>
@@ -91,18 +103,24 @@
         <img src = 'image/KouchouZoukaryou.png' width = "50" height = "50" onclick="setEffect('KouchouZoukaryou.png')">
         <img src = 'image/Shuchu.png' width = "50" height = "50" onclick="setEffect('Shuchu.png')">
         <img src = 'image/ShuchuZoukaryou.png' width = "50" height = "50" onclick="setEffect('ShuchuZoukaryou.png')"><br>
+        <img src = 'image/ShuchuKyouka.png' width = "50" height = "50" onclick="setEffect('ShuchuKyouka.png')">
         <img src = 'image/Zekkouchou.png' width = "50" height = "50" onclick="setEffect('Zekkouchou.png')">
-        <img src = 'image/Onzon.png' width = "50" height = "50" onclick="setEffect('Onzon.png')">
-        <img src = 'image/Tsuyoki.png' width = "50" height = "50" onclick="setEffect('Tsuyoki.png')">
-        <img src = 'image/Seichou.png' width = "50" height = "50" onclick="setEffect('Seichou.png')">
+        <img src = 'image/TsuyokiKyouka.png' width = "50" height = "50" onclick="setEffect('TsuyokiKyouka.png')">
         <img src = 'image/Zenryokuchi.png' width = "50" height = "50" onclick="setEffect('Zenryokuchi.png')">
-        <img src = 'image/ZenryokuchiZoukaryou.png' width = "50" height = "50" onclick="setEffect('ZenryokuchiZoukaryou.png')"><br>
+        <img src = 'image/ZenryokuchiZoukaryou.png' width = "50" height = "50" onclick="setEffect('ZenryokuchiZoukaryou.png')">
+        <img src = 'image/ZenryokuKyouka.png' width = "50" height = "50" onclick="setEffect('ZenryokuKyouka.png')"><br>
         <img src = 'image/NetsuiTsuika.png' width = "50" height = "50" onclick="setEffect('NetsuiTsuika.png')">
         <img src = 'image/NetsuiZouka.png' width = "50" height = "50" onclick="setEffect('NetsuiZouka.png')">
         <img src = 'image/HoryuuShiyou.png' width = "50" height = "50" onclick="setEffect('HoryuuShiyou.png')">
+        <img src = 'image/Onzon.png' width = "50" height = "50" onclick="setEffect('Onzon.png')">
+        <img src = 'image/Tsuyoki.png' width = "50" height = "50" onclick="setEffect('Tsuyoki.png')">
+        <img src = 'image/Zenryoku.png' width = "50" height = "50" onclick="setEffect('Zenryoku.png')"><br>
+        <img src = 'image/Nonbiri.png' width = "50" height = "50" onclick="setEffect('Nonbiri.png')">
+        <img src = 'image/Seichou.png' width = "50" height = "50" onclick="setEffect('Seichou.png')">
         <img src = 'image/CardGenerate.png' width = "50" height = "50" onclick="setEffect('CardGenerate.png')">
         <img src = 'image/AfterTurn.png' width = "50" height = "50" onclick="setEffect('AfterTurn.png')">
-        <img src = 'image/Saien.png' width = "50" height = "50" onclick="setEffect('Saien.png')"><br>
+        <img src = 'image/Saien.png' width = "50" height = "50" onclick="setEffect('Saien.png')">
+        <img src = 'image/Idouji.png' width = "50" height = "50" onclick="setEffect('Idouji.png')"><br>
         <img src = 'image/GenkiZoukaMukou.png' width = "50" height = "50" onclick="setEffect('GenkiZoukaMukou.png')">
         <img src = 'image/TairyokuKaifukuMukou.png' width = "50" height = "50" onclick="setEffect('TairyokuKaifukuMukou.png')">
         <img src = 'image/ShouhiTairyokuZouka.png' width = "50" height = "50" onclick="setEffect('ShouhiTairyokuZouka.png')">
@@ -119,17 +137,63 @@
         <img src = 'image/CardShiyouFuka.png' width = "50" height = "50" onclick="setEffect('CardShiyouFuka.png')"><br>
         <input type = "button" id = "Efreset" value = "リセット" onclick="efreset()"></input><br>
 
-        <h4>元気ON,OFF</h4>
-        
-        <input type="button" id = "genki" value="ON/OFF" onclick="genkiswich()"><br>
-        <input type="range" id = "GenkiSlider" min="1" max="999" value="1" step="1">
+
+
+        <div>
+            <h4>元気ON,OFF</h4>
+            <label for="genki-switch" class="toggle-label">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="genki-switch" onclick="genkiswitch()"/>
+                    <div class="circle"></div>
+                    <div class="base"></div>
+                </div>
+            </label>
+
+            <fieldset id="genkiArea" disabled="true">
+                <input type="button" onclick="numMinus('ipt-genki',100)" value="-100">
+                <input type="button" onclick="numMinus('ipt-genki',10)" value="-10">
+                <input type="button" onclick="numMinus('ipt-genki',1)" value="-1">
+                <input type="number" max="999" min="1" value="1" id="ipt-genki" oninput="numcut('ipt-genki')">
+                <input type="button" onclick="numPlus('ipt-genki',1)" value="+1">
+                <input type="button" onclick="numPlus('ipt-genki',10)" value="+10">
+                <input type="button" onclick="numPlus('ipt-genki',100)" value="+100">
+            </fieldset>
+        </div>
+
         <br>
-        <h4>ステータスON,OFF</h4>
-        <input type="button" id = "status" value="ON/OFF" onclick="statusswich()"></input><br>
-        <input type="range" id = "StatusSlider" min="1" max="9999" value="1" step="1">
+        <div>
+            <h4>ステータスON,OFF</h4>
+            <label for="status-switch" class="toggle-label">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="status-switch" onclick="statusswitch()"/>
+                    <div class="circle"></div>
+                    <div class="base"></div>
+                </div>
+            </label>
+
+            <fieldset id="statusArea" disabled="true">
+                <input type="button" onclick="numMinus('ipt-status',1000)" value="-1k">
+                <input type="button" onclick="numMinus('ipt-status',100)" value="-100">
+                <input type="button" onclick="numMinus('ipt-status',10)" value="-10">
+                <input type="button" onclick="numMinus('ipt-status',1)" value="-1">
+                <input type="number" max="9999" min="1" value="1" id="ipt-status" oninput="numcut('ipt-status')">
+                <input type="button" onclick="numPlus('ipt-status',1)" value="+1">
+                <input type="button" onclick="numPlus('ipt-status',10)" value="+10">
+                <input type="button" onclick="numPlus('ipt-status',100)" value="+100">
+                <input type="button" onclick="numPlus('ipt-status',1000)" value="+1k">
+            </fieldset>
+        </div>
         <br>
-        <h4>プラスON,OFF</h4>
-        <input type="button" id = "plus" value="ON/OFF" onclick="plusswich()"></input>
+        <div>
+            <h4>プラスON,OFF</h4>
+            <label for="plus-switch" class="toggle-label">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="plus-switch" onclick="plusswitch()"/>
+                    <div class="circle"></div>
+                    <div class="base"></div>
+                </div>
+            </label>
+        </div>
         <br>
         <h4>消費</h4>
         <img src = "image/GenkiShouhi.png" width="40" height="40" onclick="shouhi('GenkiShouhi.png',215)">
@@ -142,10 +206,9 @@
         <img src = "image/Zenryokuchi.png" width="40" height="40" onclick="shouhi('Zenryokuchi.png',175)"><br>
         <input type="range" id = "ShouhiSlider" min="-99" max="0" value="0" step="1"><br>
         <div class = "layer-wrap">
-            <canvas id = "NameArea" width = "300" height = "340"></canvas>
+            <canvas id = "NameArea" width = "300" height = "340" style="background-color:#ffffff;"></canvas>
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
-            
             <canvas id = "Sotowaku" width = "292" height = "340"  style="border:4px solid #444e62"></canvas>
             <canvas id = "Effect1" width = "300" height = "300" ></canvas>
             <canvas id = "Effect2" width = "300" height = "300" ></canvas>
@@ -182,13 +245,8 @@
 
     <script>
         var efpos = 1;
-        var gesw = 0;
-        var stsw = 0;
-        var plsw = 0;
-        var nasw = 1;
         var efnum = 3;
         var cvname = "cgnctx";
-
         const posData = {
             1:{id:"Effect1",y:228},
             2:{id:"Effect2",y:163},
@@ -246,7 +304,7 @@
             var cnctx =cncvs.getContext('2d');
             cnctx.font ="bold 25px 'IBM Plex Sans JP'";
             cnctx.fillStyle="#ffffff";
-            cnctx.fillRect(0,290,298,340);
+            cnctx.fillRect(0,290,300,340);
             cnctx.fillStyle = "#444e62";
             cnctx.textAlign = 'center';
             cnctx.fillText(cnt.value,150,330);
@@ -255,10 +313,12 @@
         }
 
         function nameswitch(){
+            var nasw=document.getElementById("name-switch");
             var nacvs = document.getElementById("NameArea");
             var nactx = nacvs.getContext('2d');
             var stcvs = document.getElementById("Sotowaku");
-            if (nasw == 1){
+            var natxt=document.getElementById("nametext");
+            if (!(nasw.checked)){
                 nacvs.style.display='none';
                 stcvs.style.display='none';
                 nasw = 0;
@@ -270,6 +330,8 @@
                 nasw = 1;
                 cvname = "cgnctx";
             }
+            natxt.disabled=!(natxt.disabled);
+            
         }
 
         function ImgChange(files,CardArea){
@@ -403,20 +465,20 @@
             ef3ctx.clearRect(0, 0, 300, 300);
 
             var ef4cvs = document.getElementById("Effect4");
-            var ef4ctx = ef3cvs.getContext('2d');
+            var ef4ctx = ef4cvs.getContext('2d');
             ef4ctx.clearRect(0, 0, 300, 300);
-
+            
             var ef5cvs = document.getElementById("Effect5");
             var ef5ctx = ef5cvs.getContext('2d');
             ef5ctx.clearRect(0, 0, 300, 300);
-
         }
 
-        function plusswich(){
+        function plusswitch(){
+            var plsw=document.getElementById("plus-switch");
             const plimg = new Image;
             var plcvs = document.getElementById("Plus");
             var plctx = plcvs.getContext('2d');
-            if(plsw == 1){
+            if(!(plsw.checked)){
                 plctx.clearRect(0,0,300,300);
                 plsw = 0;
             }
@@ -429,17 +491,18 @@
             }
         }
 
-        function genkiswich(){
+        function genkiswitch(){
             var gecvs = document.getElementById("Genki");
             var gectx = gecvs.getContext('2d');
-            var gsl = document.getElementById("GenkiSlider");
+            var gsw = document.getElementById('genki-switch');
+            var gipt = document.getElementById("ipt-genki");
             var gtcvs = document.getElementById("GenkiText");
             var gtctx = gtcvs.getContext('2d');
+            var garea = document.getElementById("genkiArea");
             
-            if(gesw == 1){
+            if(!(gsw.checked)){
                 gectx.clearRect(0, 0, 300, 300);
                 gtctx.clearRect(0, 0, 300, 300);
-                gesw = 0;
             }
             else{
                 var geimg = new Image();
@@ -452,10 +515,10 @@
                 gtctx.fillStyle = "#ffffff";
                 gtctx.lineWidth = "2";
                 gtctx.clearRect(0,0,300,300);
-                gtctx.fillText(gsl.value,250,70);
-                gtctx.strokeText(gsl.value,250,70);
-                gesw = 1;
+                gtctx.fillText(gipt.value,250,70);
+                gtctx.strokeText(gipt.value,250,70);
             } 
+            garea.disabled = !(garea.disabled);
         }
 
         function namechange(){
@@ -463,19 +526,21 @@
             var cncvs =document.getElementById("NameArea");
             var cnctx =cncvs.getContext('2d');
             cnctx.font ="bold 25px 'IBM Plex Sans JP'";
-            cnctx.fillStyle="#ffffff";
+            cnctx.fillStyle="#fff";
             cnctx.fillRect(0,290,298,340);
             cnctx.fillStyle = "#444e62";
             cnctx.textAlign = 'center';
             cnctx.fillText(cnt.value,150,330);
         }
 
-        function statusswich(){
-            var stl = document.getElementById("StatusSlider");
+        function statusswitch(){
+            var stsw = document.getElementById("status-switch");
+            var stArea=document.getElementById("statusArea");
+            var stip=document.getElementById("ipt-status");
             var stcvs = document.getElementById("StatusText");
             var stctx = stcvs.getContext('2d');
             
-            if(stsw == 1){
+            if(!(stsw.checked)){
                 stctx.clearRect(0, 0, 300, 300);
                 stsw = 0;
             }
@@ -486,10 +551,11 @@
                 stctx.fillStyle = "#666666";
                 stctx.lineWidth = "3";
                 stctx.clearRect(0,0,300,300);
-                stctx.fillText(stl.value,1,70);
-                stctx.strokeText(stl.value,1,70);
+                stctx.fillText(stip.value,1,70);
+                stctx.strokeText(stip.value,1,70);
                 stsw = 1;
-            } 
+            }
+            stArea.disabled=!(stArea.disabled);
         }
 
         function shouhi(name,pos){
@@ -504,7 +570,8 @@
         }
     
         function genkitsuika(){
-            var gsl = document.getElementById("GenkiSlider");
+            var gsw = document.getElementById('genki-switch');
+            var gipt = document.getElementById("ipt-genki");
             var gtcvs = document.getElementById("GenkiText");
             var gtctx = gtcvs.getContext('2d');
             gtctx.font = ("bold 60px Arial");
@@ -512,10 +579,10 @@
             gtctx.fillStyle = "#ffffff";
             gtctx.lineWidth = "2";
             
-            if(gesw == 1){
+            if(gsw.checked){
                 gtctx.clearRect(0,0,300,300);
-                gtctx.fillText(gsl.value,250,70);
-                gtctx.strokeText(gsl.value,250,70);
+                gtctx.fillText(gipt.value,250,70);
+                gtctx.strokeText(gipt.value,250,70);
             }
         }
 
@@ -533,7 +600,8 @@
         }
 
         function statusup(){
-            var stl = document.getElementById("StatusSlider");
+            var stsw=document.getElementById("status-switch");
+            var stip = document.getElementById("ipt-status");
             var stcvs = document.getElementById("StatusText");
             var stctx = stcvs.getContext('2d');
             stctx.font = "bold 80px Arial"
@@ -542,21 +610,48 @@
             stctx.fillStyle = "#666666";
             stctx.lineWidth = "3";
             
-            if(stsw == 1){
+            if(stsw.checked){
                 stctx.clearRect(0,0,300,300);
-                stctx.fillText(stl.value,3,70);
-                stctx.strokeText(stl.value,3,70);
+                stctx.fillText(stip.value,3,70);
+                stctx.strokeText(stip.value,3,70);
             }
         }
 
-        var gsl = document.getElementById("GenkiSlider");
-        gsl.addEventListener('input',genkitsuika);
+        function numcut(ipt){
+            var num=document.getElementById(`${ipt}`);
+            var numVal=Number(num.value);
+            var numMax=Number(num.max);
+            if(numVal>numMax){
+                num.value=numMax;
+            }
+            else if(numVal<1){
+                num.value='1';
+            }
+            genkitsuika();
+            shouhi();
+            statusup();
+        }
 
-        var ssl = document.getElementById("ShouhiSlider");
-        ssl.addEventListener('input',cost);
+        function numPlus(tar,num){
+            var target=document.getElementById(`${tar}`);
+            target.value = (Number(target.value) + Number(num));
+            numcut(tar);
+        }
 
-        var stl = document.getElementById("StatusSlider");
-        stl.addEventListener('input',statusup);
+        function numMinus(tar,num){
+            var target=document.getElementById(`${tar}`);
+            target.value = (Number(target.value) - Number(num));
+            numcut(tar);
+        }
+
+        var gip= document.getElementById("ipt-genki");
+        gip.addEventListener('input',genkitsuika);
+
+        var shin = document.getElementById("ShouhiSlider");
+        shin.addEventListener('input',cost);
+
+        var stin = document.getElementById("ipt-status");
+        stin.addEventListener('input',statusup);
 
         var ntc = document.getElementById("nametext");
         ntc.addEventListener('input',namechange);
@@ -613,8 +708,9 @@
             var stctx = stcvs.getContext('2d');
 
             var nacvs =document.getElementById("NameArea");
-
             var nactx = nacvs.getContext('2d');
+
+            var nasw = document.getElementById("name-switch");
             
 
             // var cvs =document.getElementById("");
@@ -623,7 +719,7 @@
 
             cgctx.clearRect(0,0,300,300);
             cgnctx.clearRect(0,0,300,340);
-            if(nasw == 1){
+            if(nasw.checked){
                 cgnctx.drawImage(createImage(nacvs),0,0);
                 cgnctx.drawImage(createImage(bgcvs),0,0);
                 cgnctx.drawImage(createImage(cacvs),0,0);
@@ -639,7 +735,6 @@
                 cgnctx.drawImage(createImage(shcvs),0,0);
                 cgnctx.drawImage(createImage(sscvs),0,0);
                 cgnctx.drawImage(createImage(stcvs),0,0);
-                
             }
             else{
                 cgctx.drawImage(createImage(bgcvs),0,0);
