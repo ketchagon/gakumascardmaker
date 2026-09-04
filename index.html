@@ -142,7 +142,7 @@
         <img src = "image/Zenryokuchi.png" width="40" height="40" onclick="shouhi('Zenryokuchi.png',175)"><br>
         <input type="range" id = "ShouhiSlider" min="-99" max="0" value="0" step="1"><br>
         <div class = "layer-wrap">
-            <canvas id = "NameArea" width = "300" height = "340" style="background-color:#ffffff"></canvas>
+            <canvas id = "NameArea" width = "300" height = "340"></canvas>
             <canvas id = "Background" width = "300" height = "300"></canvas>
             <canvas id = "Frame" width = "300" height = "300"></canvas>
             
@@ -246,7 +246,7 @@
             var cnctx =cncvs.getContext('2d');
             cnctx.font ="bold 25px 'IBM Plex Sans JP'";
             cnctx.fillStyle="#ffffff";
-            cnctx.fillRect(0,0,300,339);
+            cnctx.fillRect(0,290,298,340);
             cnctx.fillStyle = "#444e62";
             cnctx.textAlign = 'center';
             cnctx.fillText(cnt.value,150,330);
@@ -464,7 +464,7 @@
             var cnctx =cncvs.getContext('2d');
             cnctx.font ="bold 25px 'IBM Plex Sans JP'";
             cnctx.fillStyle="#ffffff";
-            cnctx.fillRect(0,0,300,339);
+            cnctx.fillRect(0,290,298,340);
             cnctx.fillStyle = "#444e62";
             cnctx.textAlign = 'center';
             cnctx.fillText(cnt.value,150,330);
